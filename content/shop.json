@@ -1,0 +1,31 @@
+{
+  "intro": "Game-ready assets made for Roblox. Pay with PayPal or Robux and get the files right after.",
+  "paypalSteps": [
+    "Click “Buy with PayPal” and pay on the checkout page.",
+    "You get a download link on screen and by email.",
+    "Download the .zip and import it into Studio."
+  ],
+  "robuxSteps": [
+    "Click “Buy with Robux” to open the store hub on Roblox.",
+    "Buy the pack in the hub.",
+    "The files are sent to you on Discord."
+  ],
+  "faq": [
+    {
+      "q": "Can I use the assets in a game that makes money?",
+      "a": "Yes. You can use them in any Roblox game, paid or free. You can't resell or share the files themselves."
+    },
+    {
+      "q": "Which formats are included?",
+      "a": "Every pack has .fbx and .blend files. Packs marked with a Roblox model file are ready to drop into Studio."
+    },
+    {
+      "q": "I paid but didn't get my files.",
+      "a": "Check your spam folder first. If it's not there, message me on Discord with your order email or Roblox username and I'll sort it out."
+    },
+    {
+      "q": "Do you do refunds?",
+      "a": "Because the files are delivered right away, sales are final. If a file is broken, I'll fix it or refund you."
+    }
+  ]
+}

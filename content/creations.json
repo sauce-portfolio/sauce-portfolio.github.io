@@ -1,0 +1,138 @@
+[
+  {
+    "id": "toadstools",
+    "title": "Toadstool Pair",
+    "category": "Environment",
+    "cover": "media/creations/mushroom.svg",
+    "video": "",
+    "tris": 464,
+    "textures": "1K palette texture",
+    "tools": [
+      "Blender",
+      "Substance Painter"
+    ],
+    "year": "2026",
+    "description": "Two stylized toadstools for a forest biome. Smooth caps, chunky stems, one shared palette texture.",
+    "link": "",
+    "featured": true
+  },
+  {
+    "id": "supply-crate",
+    "title": "Supply Crate",
+    "category": "Props",
+    "cover": "media/creations/crate.svg",
+    "video": "",
+    "tris": 144,
+    "textures": "1K palette texture",
+    "tools": [
+      "Blender",
+      "Substance Painter"
+    ],
+    "year": "2026",
+    "description": "Reinforced wooden crate with a separate frame so the planks read clearly from far away.",
+    "link": "",
+    "featured": false
+  },
+  {
+    "id": "knight-sword",
+    "title": "Knight's Sword",
+    "category": "Weapons",
+    "cover": "media/creations/sword.svg",
+    "video": "",
+    "tris": 138,
+    "textures": "1K palette texture",
+    "tools": [
+      "Blender",
+      "Substance Painter"
+    ],
+    "year": "2026",
+    "description": "One-handed sword built for a tool slot: tight silhouette, low tri count, gold guard and pommel.",
+    "link": "",
+    "featured": false
+  },
+  {
+    "id": "crystal-cluster",
+    "title": "Crystal Cluster",
+    "category": "Environment",
+    "cover": "media/creations/crystal.svg",
+    "video": "",
+    "tris": 200,
+    "textures": "1K palette texture",
+    "tools": [
+      "Blender",
+      "Substance Painter"
+    ],
+    "year": "2026",
+    "description": "Hexagonal crystal shards on a rock base, made to scatter across cave floors.",
+    "link": "",
+    "featured": false
+  },
+  {
+    "id": "barrel",
+    "title": "Barrel",
+    "category": "Props",
+    "cover": "media/creations/barrel.svg",
+    "video": "",
+    "tris": 340,
+    "textures": "1K palette texture",
+    "tools": [
+      "Blender",
+      "Substance Painter"
+    ],
+    "year": "2026",
+    "description": "Classic bulged barrel with metal hoops. Reused across docks, taverns and storage rooms.",
+    "link": "",
+    "featured": false
+  },
+  {
+    "id": "gem-ring",
+    "title": "Gem Ring",
+    "category": "Accessories",
+    "cover": "media/creations/ring.svg",
+    "video": "",
+    "tris": 720,
+    "textures": "1K palette texture",
+    "tools": [
+      "Blender",
+      "Substance Painter"
+    ],
+    "year": "2026",
+    "description": "Gold ring with a faceted gem, sized for a UGC accessory or a loot drop.",
+    "link": "",
+    "featured": false
+  },
+  {
+    "id": "rock-set",
+    "title": "Rock Set",
+    "category": "Environment",
+    "cover": "media/creations/rock.svg",
+    "video": "",
+    "tris": 480,
+    "textures": "1K palette texture",
+    "tools": [
+      "Blender",
+      "Substance Painter"
+    ],
+    "year": "2026",
+    "description": "Three faceted rocks that tile together into bigger formations.",
+    "link": "",
+    "featured": false
+  },
+  {
+    "id": "pine",
+    "title": "Pine Tree",
+    "category": "Environment",
+    "cover": "media/creations/pine.svg",
+    "video": "",
+    "tris": 76,
+    "textures": "1K palette texture",
+    "tools": [
+      "Blender",
+      "Substance Painter"
+    ],
+    "year": "2026",
+    "description": "Very cheap stacked-cone pine for dense forests on mobile.",
+    "link": "",
+    "featured": false
+  }
+]

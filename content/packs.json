@@ -1,0 +1,67 @@
+[
+  {
+    "id": "props-vol1",
+    "title": "Stylized Props Vol. 1",
+    "tagline": "24 game-ready props for towns, docks and storage rooms.",
+    "cover": "media/packs/props-vol1.svg",
+    "featured": true,
+    "priceEur": "12",
+    "priceRobux": "1200",
+    "includes": [
+      "24 props, 60 to 900 tris each",
+      "1K palette texture shared by every prop",
+      ".fbx, .blend and a Roblox model file",
+      "Commercial use in your Roblox games"
+    ],
+    "paypalUrl": "",
+    "robuxUrl": ""
+  },
+  {
+    "id": "nature-kit",
+    "title": "Nature Kit",
+    "tagline": "Trees, mushrooms and crystals for forest and cave biomes.",
+    "cover": "media/packs/nature-kit.svg",
+    "featured": false,
+    "priceEur": "9",
+    "priceRobux": "900",
+    "includes": [
+      "18 nature assets",
+      "1K palette texture",
+      ".fbx and .blend"
+    ],
+    "paypalUrl": "",
+    "robuxUrl": ""
+  },
+  {
+    "id": "loot-pack",
+    "title": "Loot Pack",
+    "tagline": "Weapons and accessories sized for tools and drops.",
+    "cover": "media/packs/loot-icons.svg",
+    "featured": false,
+    "priceEur": "7",
+    "priceRobux": "700",
+    "includes": [
+      "10 weapons and accessories",
+      "1K palette texture",
+      ".fbx and .blend"
+    ],
+    "paypalUrl": "",
+    "robuxUrl": ""
+  },
+  {
+    "id": "crystal-caves",
+    "title": "Crystal Caves",
+    "tagline": "Rocks and crystal clusters that snap into cave layouts.",
+    "cover": "media/packs/crystal-caves.svg",
+    "featured": false,
+    "priceEur": "10",
+    "priceRobux": "1000",
+    "includes": [
+      "14 rocks and crystals",
+      "1K palette texture",
+      ".fbx and .blend"
+    ],
+    "paypalUrl": "",
+    "robuxUrl": ""
+  }
+]

@@ -1,0 +1,93 @@
+{
+  "name": "Sauce",
+  "handle": "saucetherealone",
+  "role": "3D Artist",
+  "tagline": "3D Artist for Roblox · Blender, Substance Painter, ZBrush",
+  "avatar": "media/avatar.png",
+  "banner": "",
+  "visits": "550M+",
+  "visitsLabel": "visits on games I've contributed to",
+  "experience": "2+",
+  "tools": [
+    "Blender",
+    "Substance Painter",
+    "ZBrush"
+  ],
+  "tags": [
+    "3D Artist",
+    "Modeler",
+    "Prop Artist",
+    "Environment Art",
+    "Texturing",
+    "Optimization",
+    "Fast",
+    "Clean topology"
+  ],
+  "status": {
+    "open": true,
+    "label": "Commissions open",
+    "closedLabel": "Commissions closed"
+  },
+  "aboutHeading": "Hey, I'm Sauce!",
+  "aboutIntro": "A bit about me and how I work.",
+  "about": "I'm a 3D artist making stylized, optimized assets for Roblox games: props, weapons and environments that look good and stay light on mobile.\n\nWrite a few lines about yourself here: how long you've been modeling, the kind of projects you like, and what studios can expect when working with you.",
+  "aboutCards": [
+    {
+      "title": "Blender & ZBrush",
+      "text": "I model in Blender, sculpt in ZBrush and texture in Substance Painter.",
+      "icon": "brush"
+    },
+    {
+      "title": "Stylized",
+      "text": "Bright, readable shapes that fit the Roblox look and stay clear on small screens.",
+      "icon": "sparkle"
+    },
+    {
+      "title": "Flexible deals",
+      "text": "Single commissions, fixed-price contracts or long-term work with a studio.",
+      "icon": "handshake"
+    },
+    {
+      "title": "Fast and optimized",
+      "text": "Clean topology and tight tri budgets, so the models run well on mobile.",
+      "icon": "bolt"
+    }
+  ],
+  "ctaHeading": "Got a project?",
+  "ctaText": "Send me a message on Discord and let's get your models done.",
+  "ctaUrl": "https://discord.gg/5tWMrN3Fwy",
+  "discordUsername": "saucetherealone",
+  "email": "",
+  "socials": [
+    {
+      "label": "Discord server",
+      "handle": "discord.gg/5tWMrN3Fwy",
+      "url": "https://discord.gg/5tWMrN3Fwy"
+    },
+    {
+      "label": "X",
+      "handle": "@Sauce741",
+      "url": "https://x.com/Sauce741"
+    },
+    {
+      "label": "ArtStation",
+      "handle": "sauce741",
+      "url": "https://www.artstation.com/sauce741"
+    }
+  ],
+  "theme": {
+    "background": "#eef7ff",
+    "surface": "#ffffff",
+    "text": "#0c2238",
+    "accent": "#1592d4",
+    "button": "#2aa7ea",
+    "heroFrom": "#b5defd",
+    "heroTo": "#e1f1ff"
+  },
+  "packsTheme": {
+    "background": "#0b0910",
+    "surface": "#16121f",
+    "text": "#efeaff",
+    "accent": "#a47cff"
+  }
+}

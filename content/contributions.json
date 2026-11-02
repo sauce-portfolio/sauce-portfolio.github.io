@@ -1,0 +1,38 @@
+[
+  {
+    "game": "Game Title 1",
+    "studio": "Studio Name",
+    "role": "Props and environment art",
+    "visits": "250M+",
+    "ccu": "30K+",
+    "thumbnail": "media/games/game-1.svg",
+    "url": ""
+  },
+  {
+    "game": "Game Title 2",
+    "studio": "Studio Name",
+    "role": "Weapons and tools",
+    "visits": "180M+",
+    "ccu": "18K+",
+    "thumbnail": "media/games/game-2.svg",
+    "url": ""
+  },
+  {
+    "game": "Game Title 3",
+    "studio": "Studio Name",
+    "role": "Lobby and map props",
+    "visits": "80M+",
+    "ccu": "9K+",
+    "thumbnail": "media/games/game-3.svg",
+    "url": ""
+  },
+  {
+    "game": "Game Title 4",
+    "studio": "Studio Name",
+    "role": "Accessories",
+    "visits": "40M+",
+    "ccu": "4K+",
+    "thumbnail": "media/games/game-4.svg",
+    "url": ""
+  }
+]

@@ -1,0 +1,151 @@
+# Pages CMS (https://app.pagescms.org) : éditer le site sans toucher au code.
+# Chaque sauvegarde fait un commit sur GitHub, et GitHub Pages met le site à jour tout seul.
+media:
+  input: media
+  output: media
+
+content:
+  - name: creations
+    label: Créations (Work)
+    type: file
+    path: content/creations.json
+    format: json
+    list: true
+    fields:
+      - { name: id, label: "ID (sans espaces, ex. knight-sword)", type: string, required: true }
+      - { name: title, label: Titre, type: string, required: true }
+      - name: category
+        label: Catégorie
+        type: select
+        options:
+          values: [Props, Weapons, Environment, Characters, Accessories, Vehicles, UGC]
+      - { name: cover, label: Render (image principale), type: image, required: true }
+      - { name: video, label: "Vidéo turntable .mp4 (optionnel)", type: file }
+      - { name: tris, label: Triangles, type: number }
+      - { name: textures, label: "Textures (ex. 2K PBR)", type: string }
+      - { name: tools, label: Logiciels, type: string, list: true }
+      - { name: year, label: Année, type: string }
+      - { name: description, label: Description, type: text }
+      - { name: link, label: "Lien externe (ArtStation, Sketchfab…)", type: string }
+
+  - name: contributions
+    label: Jeux (Contributions)
+    type: file
+    path: content/contributions.json
+    format: json
+    list: true
+    fields:
+      - { name: game, label: Nom du jeu, type: string, required: true }
+      - { name: studio, label: Studio / groupe, type: string }
+      - { name: role, label: "Ce que tu as fait", type: string }
+      - { name: visits, label: "Visites (ex. 250M+)", type: string }
+      - { name: ccu, label: "Peak CCU (ex. 30K+)", type: string }
+      - { name: thumbnail, label: Miniature 16:9, type: image }
+      - { name: url, label: Lien du jeu Roblox, type: string }
+
+  - name: packs
+    label: Packs (boutique)
+    type: file
+    path: content/packs.json
+    format: json
+    list: true
+    fields:
+      - { name: id, label: "ID (sans espaces)", type: string, required: true }
+      - { name: title, label: Nom du pack, type: string, required: true }
+      - { name: tagline, label: Phrase courte, type: string }
+      - { name: cover, label: Image, type: image }
+      - { name: featured, label: "Pack vedette (en haut de la page)", type: boolean }
+      - { name: priceEur, label: "Prix en € (juste le nombre)", type: string }
+      - { name: priceRobux, label: "Prix en Robux (juste le nombre)", type: string }
+      - { name: includes, label: "Contenu du pack (une ligne par élément)", type: string, list: true }
+      - { name: paypalUrl, label: "Lien de paiement PayPal (Payhip, Gumroad…)", type: string }
+      - { name: robuxUrl, label: "Lien de paiement Robux (hub Roblox, Parcel…)", type: string }
+
+  - name: shop
+    label: Texte de la boutique
+    type: file
+    path: content/shop.json
+    format: json
+    fields:
+      - { name: intro, label: Intro, type: text }
+      - { name: paypalSteps, label: Étapes PayPal, type: string, list: true }
+      - { name: robuxSteps, label: Étapes Robux, type: string, list: true }
+      - name: faq
+        label: FAQ
+        type: object
+        list: true
+        fields:
+          - { name: q, label: Question, type: string }
+          - { name: a, label: Réponse, type: text }
+
+  - name: profile
+    label: Profil, contact et couleurs
+    type: file
+    path: content/profile.json
+    format: json
+    fields:
+      - { name: name, label: Nom affiché, type: string }
+      - { name: handle, label: Pseudo, type: string }
+      - { name: role, label: "Rôle (ex. 3D Artist)", type: string }
+      - { name: tagline, label: Phrase d'intro, type: text }
+      - { name: avatar, label: Photo de profil, type: image }
+      - { name: banner, label: "Bannière de la carte profil (optionnel, sinon dégradé)", type: image }
+      - { name: visits, label: "Stat principale (ex. 550M+)", type: string }
+      - { name: visitsLabel, label: Texte sous la stat, type: string }
+      - { name: experience, label: "Années d'expérience (ex. 2+)", type: string }
+      - { name: tools, label: Logiciels, type: string, list: true }
+      - { name: tags, label: "Tags (sous l'About)", type: string, list: true }
+      - name: status
+        label: Disponibilité
+        type: object
+        fields:
+          - { name: open, label: "Commissions ouvertes ?", type: boolean }
+          - { name: label, label: Texte quand c'est ouvert, type: string }
+          - { name: closedLabel, label: Texte quand c'est fermé, type: string }
+      - { name: aboutHeading, label: "Titre About (ex. Hey, I'm Sauce!)", type: string }
+      - { name: aboutIntro, label: Sous-titre About, type: string }
+      - { name: about, label: "About (ligne vide = nouveau paragraphe)", type: text }
+      - name: aboutCards
+        label: Points forts (About)
+        type: object
+        list: true
+        fields:
+          - { name: title, label: Titre, type: string }
+          - { name: text, label: Texte, type: text }
+          - name: icon
+            label: Icône
+            type: select
+            options:
+              values: [brush, sparkle, handshake, bolt, cube, user, steps, check]
+      - { name: ctaHeading, label: "Titre de fin (ex. Got a project?)", type: string }
+      - { name: ctaText, label: Texte de fin, type: text }
+      - { name: ctaUrl, label: "Lien des boutons Let's Talk", type: string }
+      - { name: discordUsername, label: Pseudo Discord (bouton copier), type: string }
+      - { name: email, label: Email (optionnel), type: string }
+      - name: socials
+        label: Réseaux
+        type: object
+        list: true
+        fields:
+          - { name: label, label: "Nom (ex. X)", type: string }
+          - { name: handle, label: "Texte affiché (ex. @Sauce741)", type: string }
+          - { name: url, label: Lien, type: string }
+      - name: theme
+        label: Couleurs du Portfolio
+        type: object
+        fields:
+          - { name: background, label: Fond, type: string }
+          - { name: surface, label: Cartes, type: string }
+          - { name: text, label: Texte, type: string }
+          - { name: accent, label: "Accent (bleu)", type: string }
+          - { name: button, label: "Boutons (bleu ciel)", type: string }
+          - { name: heroFrom, label: "Dégradé du site, bleu clair", type: string }
+          - { name: heroTo, label: "Dégradé du site, bleu pâle", type: string }
+      - name: packsTheme
+        label: Couleurs de la page Packs
+        type: object
+        fields:
+          - { name: background, label: Fond, type: string }
+          - { name: surface, label: Cartes, type: string }
+          - { name: text, label: Texte, type: string }
+          - { name: accent, label: "Accent (violet)", type: string }
