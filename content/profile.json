@@ -76,13 +76,13 @@
     }
   ],
   "theme": {
-    "background": "#eef7ff",
-    "surface": "#ffffff",
-    "text": "#0c2238",
-    "accent": "#1592d4",
-    "button": "#2aa7ea",
-    "heroFrom": "#b5defd",
-    "heroTo": "#e1f1ff"
+    "background": "#05070d",
+    "surface": "#0c111c",
+    "text": "#e9f1ff",
+    "accent": "#2f8cff",
+    "button": "#1f7bff",
+    "heroFrom": "#0a1630",
+    "heroTo": "#060a14"
   },
   "packsTheme": {
     "background": "#0b0910",

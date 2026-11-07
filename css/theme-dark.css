@@ -1,0 +1,112 @@
+/* Dark theme for the Portfolio side (black + electric blue).
+   The base colors live in content/profile.json → theme; this file restyles the parts that were built for a light page.
+   To go back to the old light theme: remove the <link> to this file in index.html and restore profile.json → theme. */
+
+body.on-portfolio {
+  color-scheme: dark;
+  --blue: var(--accent);
+  --blue-2: #7cc4ff;
+  --glow: color-mix(in srgb, var(--accent) 55%, transparent);
+  --line: color-mix(in srgb, var(--ink) 10%, transparent);
+  --grid: color-mix(in srgb, var(--accent) 16%, transparent);
+  --tint: color-mix(in srgb, var(--accent) 4%, var(--ground));
+  --accent-ink: var(--blue-2);
+  --accent-soft: color-mix(in srgb, var(--accent) 16%, var(--card));
+  --btn-bg: linear-gradient(180deg, color-mix(in srgb, var(--btn) 78%, #fff), var(--btn) 55%, color-mix(in srgb, var(--btn) 70%, #000));
+  --sh: 0 1px 2px rgba(0, 0, 0, .6), 0 18px 40px -18px rgba(0, 0, 0, .9);
+  --sh-lift: 0 2px 4px rgba(0, 0, 0, .6), 0 28px 60px -22px rgba(0, 0, 0, .95), 0 0 0 1px color-mix(in srgb, var(--accent) 35%, transparent), 0 0 40px -10px var(--glow);
+  background:
+    radial-gradient(60% 40% at 50% -5%, color-mix(in srgb, var(--accent) 30%, transparent) 0%, transparent 70%),
+    radial-gradient(40% 25% at 0% 35%, color-mix(in srgb, var(--accent) 12%, transparent) 0%, transparent 70%),
+    radial-gradient(40% 25% at 100% 60%, color-mix(in srgb, var(--accent) 12%, transparent) 0%, transparent 70%),
+    radial-gradient(50% 20% at 50% 100%, color-mix(in srgb, var(--accent) 16%, transparent) 0%, transparent 70%),
+    var(--ground);
+}
+body.on-portfolio .grain { opacity: .5; mix-blend-mode: overlay; }
+
+/* top bar + switch */
+body.on-portfolio .topbar { background: color-mix(in srgb, var(--ground) 70%, transparent); border-bottom-color: color-mix(in srgb, var(--accent) 18%, transparent); }
+body.on-portfolio .switch { background: color-mix(in srgb, var(--card) 85%, transparent); }
+body.on-portfolio .switch-thumb { box-shadow: 0 0 22px -4px var(--glow), 0 1px 0 rgba(255, 255, 255, .25) inset; }
+body.on-portfolio .btn-primary { box-shadow: 0 1px 0 rgba(255, 255, 255, .25) inset, 0 10px 30px -10px var(--glow); }
+body.on-portfolio .btn-primary:hover { box-shadow: 0 1px 0 rgba(255, 255, 255, .25) inset, 0 14px 40px -8px var(--glow); }
+body.on-portfolio .btn-white { background: color-mix(in srgb, var(--card) 85%, transparent); border-color: color-mix(in srgb, var(--accent) 25%, transparent); }
+body.on-portfolio .btn-white:hover { border-color: color-mix(in srgb, var(--accent) 60%, transparent); box-shadow: 0 0 30px -10px var(--glow); }
+body.on-portfolio .status { background: color-mix(in srgb, var(--card) 85%, transparent); }
+
+/* hero: glowing name over a blue 3D-viewport floor */
+body.on-portfolio .glow i:nth-child(1) { background: radial-gradient(closest-side, color-mix(in srgb, var(--accent) 45%, transparent), transparent); }
+body.on-portfolio .glow i:nth-child(2) { background: radial-gradient(closest-side, color-mix(in srgb, #6a5cff 30%, transparent), transparent); }
+body.on-portfolio .glow i:nth-child(3) { background: radial-gradient(closest-side, color-mix(in srgb, var(--blue-2) 22%, transparent), transparent); opacity: 1; }
+body.on-portfolio .floor { --grid: color-mix(in srgb, var(--accent) 38%, transparent); }
+body.on-portfolio .floor::before { background: color-mix(in srgb, var(--accent) 80%, #fff); box-shadow: 0 0 14px var(--accent); }
+body.on-portfolio .floor::after { background: color-mix(in srgb, var(--accent) 80%, #fff); box-shadow: 0 0 14px var(--accent); }
+body.on-portfolio .hero-text .wordmark {
+  color: #f4f8ff;
+  text-shadow:
+    0 2px 0 color-mix(in srgb, var(--accent) 75%, #fff), 0 4px 0 color-mix(in srgb, var(--accent) 85%, #000),
+    0 6px 0 color-mix(in srgb, var(--accent) 70%, #000), 0 8px 0 color-mix(in srgb, var(--accent) 55%, #000),
+    0 10px 2px rgba(0, 0, 0, .6), 0 0 40px color-mix(in srgb, var(--accent) 60%, transparent), 0 30px 90px color-mix(in srgb, var(--accent) 55%, transparent);
+}
+body.on-portfolio .hero-sub { color: color-mix(in srgb, var(--ink) 72%, transparent); }
+body.on-portfolio .stats { background: color-mix(in srgb, var(--card) 55%, transparent) !important; border-color: color-mix(in srgb, var(--accent) 25%, transparent); box-shadow: 0 0 40px -18px var(--glow); }
+body.on-portfolio .stats div:first-child dt { color: var(--blue-2); text-shadow: 0 0 18px var(--glow); }
+
+/* section titles: white → blue gradient */
+body.on-portfolio .sec-head h2,
+body.on-portfolio .end h2 {
+  background: linear-gradient(100deg, #ffffff 20%, var(--blue-2) 65%, var(--accent) 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+body.on-portfolio .kicker::before { box-shadow: 0 0 10px var(--accent); }
+body.on-portfolio .sec-tint { background: color-mix(in srgb, var(--card) 40%, transparent); }
+
+/* work grid: dark cards that light up blue on hover */
+body.on-portfolio .filters { background: color-mix(in srgb, var(--card) 80%, transparent); border-color: color-mix(in srgb, var(--accent) 20%, transparent); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
+body.on-portfolio .filters button[aria-pressed="true"] { box-shadow: 0 0 20px -4px var(--glow); }
+body.on-portfolio .tile { background: #07090f !important; border-color: color-mix(in srgb, var(--accent) 14%, transparent); transition: box-shadow .3s, border-color .3s, transform .3s; }
+body.on-portfolio .tile::after {
+  content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
+  background: radial-gradient(70% 60% at 50% 110%, color-mix(in srgb, var(--accent) 22%, transparent), transparent 70%);
+  opacity: 0; transition: opacity .35s;
+}
+body.on-portfolio .tile:hover { border-color: color-mix(in srgb, var(--accent) 65%, transparent); box-shadow: 0 0 0 1px color-mix(in srgb, var(--accent) 40%, transparent), 0 20px 50px -20px var(--glow); transform: translateY(-3px); }
+body.on-portfolio .tile:hover::after { opacity: 1; }
+
+/* games */
+body.on-portfolio .game-img { border-color: color-mix(in srgb, var(--accent) 14%, transparent); }
+body.on-portfolio .game:hover .game-img { border-color: color-mix(in srgb, var(--accent) 55%, transparent); box-shadow: 0 0 30px -10px var(--glow); }
+
+/* about: dark profile card */
+body.on-portfolio .dp { background: linear-gradient(180deg, color-mix(in srgb, var(--accent) 10%, var(--card)), var(--card)); border-color: color-mix(in srgb, var(--accent) 22%, transparent); }
+body.on-portfolio .dp-banner { background: linear-gradient(135deg, color-mix(in srgb, var(--accent) 70%, #000), #0a1230 60%, color-mix(in srgb, #6a5cff 55%, #000)) center / cover; }
+body.on-portfolio .dp-avatar,
+body.on-portfolio .dp-avatar i { background: var(--card); border-color: var(--card); }
+body.on-portfolio .dp-avatar i { background: var(--ok); }
+body.on-portfolio .dp-avatar i.closed { background: #f59e0b; }
+body.on-portfolio .dp-bubble, body.on-portfolio .dp-bubble::before { background: color-mix(in srgb, var(--accent) 12%, var(--card)); }
+body.on-portfolio .dp-name { color: var(--blue-2); }
+body.on-portfolio .dp-socials a { background: color-mix(in srgb, var(--ink) 7%, transparent); }
+body.on-portfolio .dp-socials a:hover { background: color-mix(in srgb, var(--accent) 30%, transparent); }
+body.on-portfolio .ico { box-shadow: 0 0 18px -6px var(--glow); }
+body.on-portfolio .tags li { background: color-mix(in srgb, var(--card) 80%, transparent); border-color: color-mix(in srgb, var(--accent) 20%, transparent); }
+
+/* contact panel */
+body.on-portfolio .end {
+  background:
+    radial-gradient(60% 80% at 100% 0%, color-mix(in srgb, var(--accent) 30%, transparent), transparent 70%),
+    radial-gradient(50% 70% at 0% 100%, color-mix(in srgb, #6a5cff 18%, transparent), transparent 70%),
+    var(--card);
+  border-color: color-mix(in srgb, var(--accent) 28%, transparent);
+  box-shadow: 0 0 80px -40px var(--glow);
+}
+body.on-portfolio .end::after { background: radial-gradient(closest-side, color-mix(in srgb, var(--accent) 25%, transparent), transparent); }
+body.on-portfolio .end p { color: color-mix(in srgb, var(--ink) 70%, transparent); }
+body.on-portfolio .contact-list a, body.on-portfolio .contact-list button { background: color-mix(in srgb, var(--ground) 60%, transparent); border-color: color-mix(in srgb, var(--accent) 22%, transparent); }
+body.on-portfolio .contact-list a:hover, body.on-portfolio .contact-list button:hover { border-color: color-mix(in srgb, var(--accent) 60%, transparent); box-shadow: 0 0 24px -8px var(--glow); }
+
+/* viewer */
+body.on-portfolio .viewer { border-color: color-mix(in srgb, var(--accent) 30%, transparent); box-shadow: 0 0 80px -30px var(--glow); }
+body.on-portfolio .viewer::backdrop { background: rgba(2, 4, 10, .78); }
+body.on-portfolio .v-nav, body.on-portfolio .v-close { background: color-mix(in srgb, var(--card) 85%, transparent); color: var(--ink); border-color: color-mix(in srgb, var(--accent) 30%, transparent); }
+body.on-portfolio .v-nav:hover, body.on-portfolio .v-close:hover { border-color: var(--accent); box-shadow: 0 0 20px -6px var(--glow); }
