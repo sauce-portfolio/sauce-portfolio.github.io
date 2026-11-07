@@ -55,19 +55,19 @@
   },
   {
     "id": "ice-trophy",
-    "category": "Trophies",
+    "category": "Props",
     "cover": "media/creations/ice-trophy.webp",
     "video": ""
   },
   {
     "id": "voxel-map",
-    "category": "Voxel",
+    "category": "Voxel-Low Poly",
     "cover": "media/creations/voxel-map.webp",
     "video": ""
   },
   {
     "id": "toucan-trophy",
-    "category": "Trophies",
+    "category": "Props",
     "cover": "media/creations/toucan-trophy.webp",
     "video": ""
   },
@@ -79,13 +79,13 @@
   },
   {
     "id": "lava-trophy",
-    "category": "Trophies",
+    "category": "Props",
     "cover": "media/creations/lava-trophy.webp",
     "video": ""
   },
   {
     "id": "ocean-trophy",
-    "category": "Trophies",
+    "category": "Props",
     "cover": "media/creations/ocean-trophy.webp",
     "video": ""
   },
@@ -97,13 +97,13 @@
   },
   {
     "id": "voxel-weapons",
-    "category": "Voxel",
+    "category": "Voxel-Low Poly",
     "cover": "media/creations/voxel-weapons.webp",
     "video": ""
   },
   {
     "id": "stud-pack",
-    "category": "Voxel",
+    "category": "Voxel-Low Poly",
     "cover": "media/creations/stud-pack.webp",
     "video": ""
   },
@@ -111,6 +111,42 @@
     "id": "golden-shield",
     "category": "Props",
     "cover": "media/creations/golden-shield.webp",
+    "video": ""
+  },
+  {
+    "id": "oil-pump",
+    "category": "Props",
+    "cover": "media/creations/oil-pump.webp",
+    "video": ""
+  },
+  {
+    "id": "tool-set",
+    "category": "Props",
+    "cover": "media/creations/tool-set.webp",
+    "video": ""
+  },
+  {
+    "id": "dragon-cleaver",
+    "category": "Weapons",
+    "cover": "media/creations/dragon-cleaver.webp",
+    "video": ""
+  },
+  {
+    "id": "void-greatsword",
+    "category": "Weapons",
+    "cover": "media/creations/void-greatsword.webp",
+    "video": ""
+  },
+  {
+    "id": "magma-hammer",
+    "category": "Weapons",
+    "cover": "media/creations/magma-hammer.webp",
+    "video": ""
+  },
+  {
+    "id": "bone-blade",
+    "category": "Weapons",
+    "cover": "media/creations/bone-blade.webp",
     "video": ""
   }
 ]
