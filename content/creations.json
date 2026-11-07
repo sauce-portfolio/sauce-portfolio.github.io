@@ -1,96 +1,115 @@
 [
   {
     "id": "treasure-chest",
+    "category": "Props",
     "cover": "media/creations/treasure-chest.webp",
     "video": ""
   },
   {
     "id": "crocodile",
+    "category": "Creatures",
     "cover": "media/creations/crocodile.webp",
     "video": ""
   },
   {
     "id": "raptor-mount",
+    "category": "Creatures",
     "cover": "media/creations/raptor-mount.webp",
     "video": ""
   },
   {
     "id": "tesla-turret",
+    "category": "Props",
     "cover": "media/creations/tesla-turret.webp",
     "video": ""
   },
   {
     "id": "golden-chained-sword",
+    "category": "Weapons",
     "cover": "media/creations/golden-chained-sword.webp",
     "video": ""
   },
   {
     "id": "ice-rune-sword",
+    "category": "Weapons",
     "cover": "media/creations/ice-rune-sword.webp",
     "video": ""
   },
   {
     "id": "crimson-scythe",
+    "category": "Weapons",
     "cover": "media/creations/crimson-scythe.webp",
     "video": ""
   },
   {
     "id": "porcelain-sword",
+    "category": "Weapons",
     "cover": "media/creations/porcelain-sword.webp",
     "video": ""
   },
   {
     "id": "butterfly-scythe",
+    "category": "Weapons",
     "cover": "media/creations/butterfly-scythe.webp",
     "video": ""
   },
   {
     "id": "ice-trophy",
+    "category": "Trophies",
     "cover": "media/creations/ice-trophy.webp",
     "video": ""
   },
   {
     "id": "voxel-map",
+    "category": "Voxel",
     "cover": "media/creations/voxel-map.webp",
     "video": ""
   },
   {
     "id": "toucan-trophy",
+    "category": "Trophies",
     "cover": "media/creations/toucan-trophy.webp",
     "video": ""
   },
   {
     "id": "flesh-sword",
+    "category": "Weapons",
     "cover": "media/creations/flesh-sword.webp",
     "video": ""
   },
   {
     "id": "lava-trophy",
+    "category": "Trophies",
     "cover": "media/creations/lava-trophy.webp",
     "video": ""
   },
   {
     "id": "ocean-trophy",
+    "category": "Trophies",
     "cover": "media/creations/ocean-trophy.webp",
     "video": ""
   },
   {
     "id": "sea-urchin-dagger",
+    "category": "Weapons",
     "cover": "media/creations/sea-urchin-dagger.webp",
     "video": ""
   },
   {
     "id": "voxel-weapons",
+    "category": "Voxel",
     "cover": "media/creations/voxel-weapons.webp",
     "video": ""
   },
   {
     "id": "stud-pack",
+    "category": "Voxel",
     "cover": "media/creations/stud-pack.webp",
     "video": ""
   },
   {
     "id": "golden-shield",
+    "category": "Props",
     "cover": "media/creations/golden-shield.webp",
     "video": ""
   }

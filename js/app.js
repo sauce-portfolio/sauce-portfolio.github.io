@@ -103,9 +103,18 @@
     }).join("");
     $("#tags").innerHTML = (p.tags || p.tools || []).map((t) => `<li>${esc(t)}</li>`).join("");
 
-    // mosaic: images only
+    // filters + mosaic (images only)
+    const cats = ["All", ...new Set(items.map((c) => c.category).filter(Boolean))];
+    const count = (cat) => (cat === "All" ? items.length : items.filter((c) => c.category === cat).length);
+    $("#filters").innerHTML = cats.length > 2 ? cats.map((c, i) =>
+      `<button type="button" data-cat="${esc(c)}" aria-pressed="${i === 0}">${esc(c)}<span>${count(c)}</span></button>`).join("") : "";
+    $("#filters").onclick = (e) => {
+      const b = e.target.closest("button"); if (!b) return;
+      $$("#filters button").forEach((x) => x.setAttribute("aria-pressed", x === b));
+      filter(b.dataset.cat);
+    };
     $("#grid").innerHTML = items.map((c, i) => `
-      <button type="button" class="tile" data-i="${i}" aria-label="View image ${i + 1}">${swap(c)}</button>`).join("");
+      <button type="button" class="tile" data-i="${i}" data-cat="${esc(c.category)}" aria-label="View image ${i + 1}">${swap(c)}</button>`).join("");
     $("#grid").onclick = (e) => { const t = e.target.closest(".tile"); if (t) openViewer(+t.dataset.i); };
     layoutMosaic();
 
@@ -130,6 +139,14 @@
       t.classList.remove("s2", "s3", "s4", "full");
       t.classList.add(k === vis.length - 1 && k % 2 === 0 ? "full" : "s3");
     });
+  }
+  function filter(cat) {
+    $$("#grid .tile").forEach((t) => {
+      const show = cat === "All" || t.dataset.cat === cat;
+      t.classList.toggle("is-hidden", !show);
+      if (show) { t.classList.remove("pop"); void t.offsetWidth; t.classList.add("pop"); }
+    });
+    layoutMosaic();
   }
 
   /* ---------- viewer ---------- */
