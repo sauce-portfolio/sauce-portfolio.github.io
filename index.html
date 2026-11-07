@@ -59,7 +59,6 @@
           <div><span class="kicker">Work</span><h2>Selected models</h2></div>
           <p>Click a model to see it bigger.</p>
         </div>
-        <div class="filters" id="filters" role="toolbar" aria-label="Filter by category"></div>
         <div class="mosaic" id="grid"></div>
         <div class="more" id="more"></div>
       </div>
@@ -171,21 +170,14 @@
 
 <nav class="dock" aria-label="Sections"><div class="dock-in" id="dock"></div></nav>
 
-<dialog class="viewer" id="viewer" data-lenis-prevent aria-labelledby="v-title">
+<dialog class="viewer" id="viewer" data-lenis-prevent aria-label="Image viewer">
   <div class="v-stage">
     <div class="v-media" id="v-media"></div>
     <button type="button" class="v-nav v-prev" id="v-prev" aria-label="Previous model">‹</button>
     <button type="button" class="v-nav v-next" id="v-next" aria-label="Next model">›</button>
   </div>
-  <div class="v-info">
-    <button type="button" class="v-close" id="v-close" aria-label="Close">✕</button>
-    <p class="v-cat" id="v-cat"></p>
-    <h2 id="v-title"></h2>
-    <p class="v-desc" id="v-desc"></p>
-    <dl class="specs" id="v-specs"></dl>
-    <a class="btn btn-white v-link" id="v-link" target="_blank" rel="noopener" hidden>View full project ↗</a>
-    <p class="v-count" id="v-count"></p>
-  </div>
+  <button type="button" class="v-close" id="v-close" aria-label="Close">✕</button>
+  <p class="v-count" id="v-count"></p>
 </dialog>
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>

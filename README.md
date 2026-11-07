@@ -8,7 +8,7 @@ css/style.css       le design
 js/app.js           lit content/*.json et construit la page
 content/
   profile.json      nom, stat 550M+, about, réseaux, dispo, couleurs
-  creations.json    la grille Work (render + wireframe + tris)
+  creations.json    la grille Work (juste les images)
   contributions.json  les jeux
   packs.json        la boutique (le pack avec "featured": true passe en haut)
   shop.json         l'intro de la boutique, les étapes d'achat et la FAQ
@@ -37,7 +37,7 @@ Tu peux aussi éditer directement les `.json` sur github.com (icône crayon).
 
 ## 3. Ce qu'il faut remplacer (templates)
 
-- **Créations** : les 8 modèles low-poly sont des placeholders. Pour chaque pièce, mets l'image (`cover`), le nombre de **tris**, les textures et les logiciels. Ajoute une vidéo `.mp4` si tu as une turntable (courte, sans son, moins de 10 Mo).
+- **Créations** : ce sont tes vraies images. Pour en ajouter une, mets l'image dans `media/creations/` et ajoute une ligne dans `content/creations.json` (ou passe par Pages CMS). Tu peux aussi mettre une vidéo `.mp4` (courte, sans son, moins de 10 Mo).
 - **Jeux** : `Game Title 1..4` sont des templates. Mets le vrai nom, le studio, **ce que tu as fait précisément**, les visites, le CCU, une miniature 16:9 et le lien Roblox.
 - **About** : le 2e paragraphe est à réécrire.
 - **Packs** : le pack coché « Pack vedette » s'affiche en grand en haut de la page Packs : image en 16:9 à gauche, infos et paiement à droite. Pour tous : noms, prix, images et surtout `paypalUrl` et `robuxUrl`. Tant qu'un lien est vide, le bouton affiche « This payment link isn't set up yet. » au lieu de casser.

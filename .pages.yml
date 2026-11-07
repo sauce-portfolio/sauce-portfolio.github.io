@@ -13,20 +13,8 @@ content:
     list: true
     fields:
       - { name: id, label: "ID (sans espaces, ex. knight-sword)", type: string, required: true }
-      - { name: title, label: Titre, type: string, required: true }
-      - name: category
-        label: Catégorie
-        type: select
-        options:
-          values: [Props, Weapons, Environment, Characters, Accessories, Vehicles, UGC]
-      - { name: cover, label: Render (image principale), type: image, required: true }
+      - { name: cover, label: Image, type: image, required: true }
       - { name: video, label: "Vidéo turntable .mp4 (optionnel)", type: file }
-      - { name: tris, label: Triangles, type: number }
-      - { name: textures, label: "Textures (ex. 2K PBR)", type: string }
-      - { name: tools, label: Logiciels, type: string, list: true }
-      - { name: year, label: Année, type: string }
-      - { name: description, label: Description, type: text }
-      - { name: link, label: "Lien externe (ArtStation, Sketchfab…)", type: string }
 
   - name: contributions
     label: Jeux (Contributions)

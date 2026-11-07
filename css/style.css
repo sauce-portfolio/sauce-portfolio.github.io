@@ -265,14 +265,14 @@ main, .foot { position: relative; z-index: 2; }
 .filters button span { font: 500 12px/1 var(--f-mono); margin-left: 6px; opacity: .7; }
 .filters button[aria-pressed="true"] { background: var(--btn-bg); color: var(--btn-fg); }
 .mosaic { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 18px; }
-.tile { position: relative; grid-column: span 3; aspect-ratio: 16 / 10; border: 1px solid var(--line); padding: 0; cursor: zoom-in; border-radius: var(--r); overflow: hidden; background: var(--tint); box-shadow: var(--sh); transition: box-shadow .25s; }
+.tile { position: relative; grid-column: span 3; aspect-ratio: 16 / 9; background: #0e0e0e !important; border: 1px solid var(--line); padding: 0; cursor: zoom-in; border-radius: var(--r); overflow: hidden; background: var(--tint); box-shadow: var(--sh); transition: box-shadow .25s; }
 .tile:hover { box-shadow: var(--sh-lift); }
 .tile.s2 { grid-column: span 2; aspect-ratio: auto; }
 .tile.s4 { grid-column: span 4; aspect-ratio: 16 / 9; }
 .tile.full { grid-column: 1 / -1; aspect-ratio: 21 / 9; }
 .tile.is-hidden { display: none; }
 .swap { position: absolute; inset: 0; display: block; }
-.swap img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: opacity .35s ease, transform .6s ease; }
+.swap img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; transition: opacity .35s ease, transform .6s ease; }
 .swap .w { opacity: 0; }
 .has-wire:hover .swap .w, .has-wire:focus-visible .swap .w { opacity: 1; }
 .has-wire:hover .swap .r, .has-wire:focus-visible .swap .r { opacity: 0; }
@@ -406,19 +406,18 @@ main, .foot { position: relative; z-index: 2; }
 .viewer {
   width: min(1180px, calc(100vw - 32px)); max-width: none; max-height: calc(100dvh - 32px); padding: 0; border: 1px solid var(--line);
   border-radius: 26px; background: var(--card); color: var(--ink); overflow: hidden; box-shadow: var(--sh-lift);
-  display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr);
+  display: block; background: #0e0e0e;
 }
 .viewer:not([open]) { display: none; }
 .viewer::backdrop { background: color-mix(in srgb, var(--ink) 45%, transparent); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
-.v-stage { position: relative; min-height: 0; background-color: var(--tint);
-  background-image: linear-gradient(var(--grid) 1px, transparent 1px), linear-gradient(90deg, var(--grid) 1px, transparent 1px); background-size: 40px 40px; }
-.v-media { aspect-ratio: 4 / 3; width: 100%; max-height: calc(100dvh - 32px); }
+.v-stage { position: relative; min-height: 0; background: #0e0e0e; }
+.v-media { width: 100%; height: min(calc(100dvh - 34px), 820px); }
 .v-media img, .v-media video { width: 100%; height: 100%; object-fit: contain; }
 .v-toggle { position: absolute; top: 16px; left: 16px; }
 .v-nav { position: absolute; top: 50%; transform: translateY(-50%); width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--line); cursor: pointer; font-size: 26px; line-height: 1; padding-bottom: 3px; background: var(--card); box-shadow: var(--sh); }
 .v-prev { left: 16px; } .v-next { right: 16px; }
 .v-info { position: relative; padding: 30px 28px; display: flex; flex-direction: column; gap: 12px; overflow-y: auto; min-width: 0; }
-.v-close { position: absolute; top: 18px; right: 18px; width: 38px; height: 38px; border-radius: 12px; border: 1px solid var(--line); cursor: pointer; background: var(--card); }
+.v-close { position: absolute; z-index: 2; top: 18px; right: 18px; width: 38px; height: 38px; border-radius: 12px; border: 1px solid var(--line); cursor: pointer; background: var(--card); }
 .v-cat { font: 500 12.5px/1 var(--f-mono); text-transform: uppercase; letter-spacing: .1em; color: var(--accent-ink); padding-right: 48px; }
 .v-info h2 { font: 800 clamp(28px, 3vw, 40px)/1 var(--f-display); letter-spacing: -.04em; padding-right: 40px; }
 .v-desc { color: var(--muted); }
@@ -427,7 +426,7 @@ main, .foot { position: relative; z-index: 2; }
 .specs dt { color: var(--muted); padding-right: 16px; }
 .specs dd { text-align: right; font-weight: 600; overflow-wrap: anywhere; font-variant-numeric: tabular-nums; }
 .v-link { align-self: flex-start; margin-top: 6px; }
-.v-count { margin-top: auto; font: 500 12.5px/1 var(--f-mono); color: var(--muted); }
+.v-count { position: absolute; left: 50%; bottom: 16px; transform: translateX(-50%); margin: 0; padding: 7px 11px; border-radius: 999px; background: rgb(0 0 0 / .55); color: #fff; font: 500 12.5px/1 var(--f-mono); }
 
 /* ---------- Toast ---------- */
 .toast {

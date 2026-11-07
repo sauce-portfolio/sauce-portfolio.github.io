@@ -1,138 +1,97 @@
 [
   {
-    "id": "toadstools",
-    "title": "Toadstool Pair",
-    "category": "Environment",
-    "cover": "media/creations/mushroom.svg",
-    "video": "",
-    "tris": 464,
-    "textures": "1K palette texture",
-    "tools": [
-      "Blender",
-      "Substance Painter"
-    ],
-    "year": "2026",
-    "description": "Two stylized toadstools for a forest biome. Smooth caps, chunky stems, one shared palette texture.",
-    "link": "",
-    "featured": true
+    "id": "treasure-chest",
+    "cover": "media/creations/treasure-chest.webp",
+    "video": ""
   },
   {
-    "id": "supply-crate",
-    "title": "Supply Crate",
-    "category": "Props",
-    "cover": "media/creations/crate.svg",
-    "video": "",
-    "tris": 144,
-    "textures": "1K palette texture",
-    "tools": [
-      "Blender",
-      "Substance Painter"
-    ],
-    "year": "2026",
-    "description": "Reinforced wooden crate with a separate frame so the planks read clearly from far away.",
-    "link": "",
-    "featured": false
+    "id": "crocodile",
+    "cover": "media/creations/crocodile.webp",
+    "video": ""
   },
   {
-    "id": "knight-sword",
-    "title": "Knight's Sword",
-    "category": "Weapons",
-    "cover": "media/creations/sword.svg",
-    "video": "",
-    "tris": 138,
-    "textures": "1K palette texture",
-    "tools": [
-      "Blender",
-      "Substance Painter"
-    ],
-    "year": "2026",
-    "description": "One-handed sword built for a tool slot: tight silhouette, low tri count, gold guard and pommel.",
-    "link": "",
-    "featured": false
+    "id": "raptor-mount",
+    "cover": "media/creations/raptor-mount.webp",
+    "video": ""
   },
   {
-    "id": "crystal-cluster",
-    "title": "Crystal Cluster",
-    "category": "Environment",
-    "cover": "media/creations/crystal.svg",
-    "video": "",
-    "tris": 200,
-    "textures": "1K palette texture",
-    "tools": [
-      "Blender",
-      "Substance Painter"
-    ],
-    "year": "2026",
-    "description": "Hexagonal crystal shards on a rock base, made to scatter across cave floors.",
-    "link": "",
-    "featured": false
+    "id": "tesla-turret",
+    "cover": "media/creations/tesla-turret.webp",
+    "video": ""
   },
   {
-    "id": "barrel",
-    "title": "Barrel",
-    "category": "Props",
-    "cover": "media/creations/barrel.svg",
-    "video": "",
-    "tris": 340,
-    "textures": "1K palette texture",
-    "tools": [
-      "Blender",
-      "Substance Painter"
-    ],
-    "year": "2026",
-    "description": "Classic bulged barrel with metal hoops. Reused across docks, taverns and storage rooms.",
-    "link": "",
-    "featured": false
+    "id": "golden-chained-sword",
+    "cover": "media/creations/golden-chained-sword.webp",
+    "video": ""
   },
   {
-    "id": "gem-ring",
-    "title": "Gem Ring",
-    "category": "Accessories",
-    "cover": "media/creations/ring.svg",
-    "video": "",
-    "tris": 720,
-    "textures": "1K palette texture",
-    "tools": [
-      "Blender",
-      "Substance Painter"
-    ],
-    "year": "2026",
-    "description": "Gold ring with a faceted gem, sized for a UGC accessory or a loot drop.",
-    "link": "",
-    "featured": false
+    "id": "ice-rune-sword",
+    "cover": "media/creations/ice-rune-sword.webp",
+    "video": ""
   },
   {
-    "id": "rock-set",
-    "title": "Rock Set",
-    "category": "Environment",
-    "cover": "media/creations/rock.svg",
-    "video": "",
-    "tris": 480,
-    "textures": "1K palette texture",
-    "tools": [
-      "Blender",
-      "Substance Painter"
-    ],
-    "year": "2026",
-    "description": "Three faceted rocks that tile together into bigger formations.",
-    "link": "",
-    "featured": false
+    "id": "crimson-scythe",
+    "cover": "media/creations/crimson-scythe.webp",
+    "video": ""
   },
   {
-    "id": "pine",
-    "title": "Pine Tree",
-    "category": "Environment",
-    "cover": "media/creations/pine.svg",
-    "video": "",
-    "tris": 76,
-    "textures": "1K palette texture",
-    "tools": [
-      "Blender",
-      "Substance Painter"
-    ],
-    "year": "2026",
-    "description": "Very cheap stacked-cone pine for dense forests on mobile.",
-    "link": "",
-    "featured": false
+    "id": "porcelain-sword",
+    "cover": "media/creations/porcelain-sword.webp",
+    "video": ""
+  },
+  {
+    "id": "butterfly-scythe",
+    "cover": "media/creations/butterfly-scythe.webp",
+    "video": ""
+  },
+  {
+    "id": "ice-trophy",
+    "cover": "media/creations/ice-trophy.webp",
+    "video": ""
+  },
+  {
+    "id": "voxel-map",
+    "cover": "media/creations/voxel-map.webp",
+    "video": ""
+  },
+  {
+    "id": "toucan-trophy",
+    "cover": "media/creations/toucan-trophy.webp",
+    "video": ""
+  },
+  {
+    "id": "flesh-sword",
+    "cover": "media/creations/flesh-sword.webp",
+    "video": ""
+  },
+  {
+    "id": "lava-trophy",
+    "cover": "media/creations/lava-trophy.webp",
+    "video": ""
+  },
+  {
+    "id": "ocean-trophy",
+    "cover": "media/creations/ocean-trophy.webp",
+    "video": ""
+  },
+  {
+    "id": "sea-urchin-dagger",
+    "cover": "media/creations/sea-urchin-dagger.webp",
+    "video": ""
+  },
+  {
+    "id": "voxel-weapons",
+    "cover": "media/creations/voxel-weapons.webp",
+    "video": ""
+  },
+  {
+    "id": "stud-pack",
+    "cover": "media/creations/stud-pack.webp",
+    "video": ""
+  },
+  {
+    "id": "golden-shield",
+    "cover": "media/creations/golden-shield.webp",
+    "video": ""
   }
 ]
