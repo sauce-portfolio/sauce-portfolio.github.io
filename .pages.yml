@@ -17,7 +17,7 @@ content:
         label: Catégorie
         type: select
         options:
-          values: [Weapons, Props, Creatures, Voxel-Low Poly, Environment, Characters, UGC]
+          values: [Weapons, Props, Creatures, Voxel-Low Poly, Others, Environment, Characters, UGC]
       - { name: cover, label: Image, type: image, required: true }
       - { name: video, label: "Vidéo turntable .mp4 (optionnel)", type: file }
 

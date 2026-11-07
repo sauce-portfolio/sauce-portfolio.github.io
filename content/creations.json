@@ -19,7 +19,7 @@
   },
   {
     "id": "tesla-turret",
-    "category": "Props",
+    "category": "Others",
     "cover": "media/creations/tesla-turret.webp",
     "video": ""
   },
@@ -109,19 +109,19 @@
   },
   {
     "id": "golden-shield",
-    "category": "Props",
+    "category": "Weapons",
     "cover": "media/creations/golden-shield.webp",
     "video": ""
   },
   {
     "id": "oil-pump",
-    "category": "Props",
+    "category": "Others",
     "cover": "media/creations/oil-pump.webp",
     "video": ""
   },
   {
     "id": "tool-set",
-    "category": "Props",
+    "category": "Voxel-Low Poly",
     "cover": "media/creations/tool-set.webp",
     "video": ""
   },
