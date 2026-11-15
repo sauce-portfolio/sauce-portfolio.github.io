@@ -9,7 +9,8 @@
     "thumbnail": "media/games/superbullet-studios.webp",
     "bg": "",
     "fit": "",
-    "url": "https://superbulletstudios.com/"
+    "url": "https://superbulletstudios.com/",
+    "showInHero": true
   },
   {
     "game": "Lazies Studio",
@@ -21,7 +22,8 @@
     "thumbnail": "media/games/lazies-studio.webp",
     "bg": "#1f1f1f",
     "fit": "",
-    "url": "https://laziesstudio.com/"
+    "url": "https://laziesstudio.com/",
+    "showInHero": true
   },
   {
     "game": "Skeptic Softworks",
@@ -33,7 +35,8 @@
     "thumbnail": "media/games/skeptic-softworks.webp",
     "bg": "#ffffff",
     "fit": "",
-    "url": "https://skepticsoftworks.com/"
+    "url": "https://skepticsoftworks.com/",
+    "showInHero": true
   },
   {
     "game": "Fill The Swimming Pool!",
@@ -45,7 +48,8 @@
     "thumbnail": "media/games/fill-the-swimming-pool.webp",
     "bg": "",
     "fit": "",
-    "url": "https://www.roblox.com/games/83115542113771/Fill-The-Swimming-Pool"
+    "url": "https://www.roblox.com/games/83115542113771/Fill-The-Swimming-Pool",
+    "showInHero": false
   },
   {
     "game": "Ballstrike Eternal",
@@ -57,6 +61,7 @@
     "thumbnail": "media/games/ballstrike-eternal.webp",
     "bg": "",
     "fit": "cover",
-    "url": ""
+    "url": "",
+    "showInHero": true
   }
 ]

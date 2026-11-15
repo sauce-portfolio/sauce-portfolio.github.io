@@ -36,6 +36,7 @@ content:
       - { name: ccu, label: "Peak CCU (ex. 30K+)", type: string }
       - { name: thumbnail, label: "Logo ou miniature (vide = initiales)", type: image }
       - { name: bg, label: "Couleur de fond derrière le logo (ex. #ffffff, vide = flou)", type: string }
+      - { name: showInHero, label: "Afficher dans « Worked with » en haut de la page", type: boolean, default: true }
       - { name: fit, label: "Mettre « cover » pour que l'image remplisse toute la carte", type: string }
       - { name: url, label: Lien du site du studio ou du jeu Roblox, type: string }
 

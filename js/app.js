@@ -69,7 +69,7 @@
 
 
     // hero: "worked with" logos (released studios/games that have a logo) + 3D wall of creations
-    const trusted = games.filter((g) => g.thumbnail && !/soon|unreleased|upcoming/i.test(g.badge || ""));
+    const trusted = games.filter((g) => g.thumbnail && g.showInHero !== false && !/soon|unreleased|upcoming/i.test(g.badge || ""));
     $("#trusted-row").innerHTML = trusted.map((g) => {
       const okBg = /^#[0-9a-f]{3,8}$/i.test(String(g.bg || "").trim());
       const inner = `<span class="tl-logo"${okBg ? ` style="background:${esc(g.bg.trim())}"` : ""}><img src="${esc(g.thumbnail)}" alt=""></span><span>${esc(g.game)}</span>`;
