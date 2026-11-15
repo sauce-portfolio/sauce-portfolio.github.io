@@ -8,7 +8,20 @@
     "ccu": "",
     "thumbnail": "media/games/superbullet-studios.webp",
     "bg": "",
+    "fit": "",
     "url": "https://superbulletstudios.com/"
+  },
+  {
+    "game": "Lazies Studio",
+    "studio": "",
+    "role": "3D Artist",
+    "badge": "",
+    "visits": "1.8B+",
+    "ccu": "",
+    "thumbnail": "media/games/lazies-studio.webp",
+    "bg": "#1f1f1f",
+    "fit": "",
+    "url": "https://laziesstudio.com/"
   },
   {
     "game": "Skeptic Softworks",
@@ -19,6 +32,7 @@
     "ccu": "",
     "thumbnail": "media/games/skeptic-softworks.webp",
     "bg": "#ffffff",
+    "fit": "",
     "url": "https://skepticsoftworks.com/"
   },
   {
@@ -30,17 +44,19 @@
     "ccu": "",
     "thumbnail": "media/games/fill-the-swimming-pool.webp",
     "bg": "",
+    "fit": "",
     "url": "https://www.roblox.com/games/83115542113771/Fill-The-Swimming-Pool"
   },
   {
-    "game": "Lazies Studio",
+    "game": "Ballstrike Eternal",
     "studio": "",
     "role": "3D Artist",
-    "badge": "",
-    "visits": "1.8B+",
+    "badge": "Coming soon",
+    "visits": "",
     "ccu": "",
-    "thumbnail": "",
+    "thumbnail": "media/games/ballstrike-eternal.webp",
     "bg": "",
-    "url": "https://laziesstudio.com/"
+    "fit": "cover",
+    "url": ""
   }
 ]

@@ -74,8 +74,12 @@ body.on-portfolio .tile:hover { border-color: color-mix(in srgb, var(--accent) 6
 body.on-portfolio .tile:hover::after { opacity: 1; }
 
 /* games */
-body.on-portfolio .game-img { border-color: color-mix(in srgb, var(--accent) 14%, transparent); }
-body.on-portfolio .game:hover .game-img { border-color: color-mix(in srgb, var(--accent) 55%, transparent); box-shadow: 0 0 30px -10px var(--glow); }
+body.on-portfolio .game { border-color: color-mix(in srgb, var(--accent) 20%, transparent); }
+body.on-portfolio .game:hover { border-color: color-mix(in srgb, var(--accent) 70%, transparent); box-shadow: 0 0 0 1px color-mix(in srgb, var(--accent) 40%, transparent), 0 30px 70px -26px var(--glow); }
+body.on-portfolio .game-nums b, body.on-portfolio #games .sec-head p strong {
+  background: linear-gradient(180deg, #ffffff 10%, var(--blue-2) 60%, var(--accent) 100%); -webkit-background-clip: text; background-clip: text; color: transparent;
+  filter: drop-shadow(0 0 22px color-mix(in srgb, var(--accent) 45%, transparent));
+}
 
 /* about: dark profile card */
 body.on-portfolio .dp { background: linear-gradient(180deg, color-mix(in srgb, var(--accent) 10%, var(--card)), var(--card)); border-color: color-mix(in srgb, var(--accent) 22%, transparent); }

@@ -68,21 +68,34 @@
     $("#stat-games").textContent = games.length;
 
 
-    // studios + games grid (logo or thumbnail shown whole; a plain "bg" color replaces the blurred backdrop)
-    $("#games-grid").innerHTML = games.map((g) => {
+    // studios + games: big cards. The first two are wide; the last row is widened so it never leaves a hole.
+    const wide = new Set([0, 1]);
+    const left = games.length - 2;
+    if (left % 3 === 2) [1, 2].forEach((k) => wide.add(games.length - k));
+    if (left % 3 === 1 && left >= 4) [1, 2, 3, 4].forEach((k) => wide.add(games.length - k));
+    $("#games-grid").innerHTML = games.map((g, i) => {
       const tag = g.url ? "a" : "div";
       const attrs = g.url ? ` href="${esc(g.url)}" target="_blank" rel="noopener"` : "";
       const okBg = /^#[0-9a-f]{3,8}$/i.test(String(g.bg || "").trim());
+      const cover = g.fit === "cover";
       const mono = String(g.game || "").split(/\s+/).map((w) => w[0] || "").join("").slice(0, 2).toUpperCase();
       const art = g.thumbnail
-        ? `${okBg ? "" : `<img class="fit-bg" src="${esc(g.thumbnail)}" alt="" aria-hidden="true" loading="lazy">`}<img class="fit-img" src="${esc(g.thumbnail)}" alt="${esc(g.game)}" loading="lazy">`
+        ? `${okBg || cover ? "" : `<img class="fit-bg" src="${esc(g.thumbnail)}" alt="" aria-hidden="true" loading="lazy">`}<img class="fit-img" src="${esc(g.thumbnail)}" alt="${esc(g.game)}" loading="lazy">`
         : `<span class="game-mono" aria-hidden="true">${esc(mono)}</span>`;
-      const nums = `${g.visits ? `<b>${esc(g.visits)}</b> visits` : ""}${g.ccu ? `<span>${esc(g.ccu)} peak CCU</span>` : ""}`;
-      return `<${tag} class="game"${attrs}>
-        <span class="game-img"${okBg ? ` style="background:${esc(g.bg.trim())}"` : ""}>${art}${g.badge ? `<span class="game-badge"><i></i>${esc(g.badge)}</span>` : ""}${g.url ? `<span class="game-play">${/roblox\.com\/games/.test(g.url) ? "Play" : "Visit"} ↗</span>` : ""}</span>
-        <span class="game-name">${esc(g.game)}</span>
-        <span class="game-role">${esc([g.role, g.studio].filter(Boolean).join(" · "))}</span>
-        ${nums ? `<span class="game-nums">${nums}</span>` : ""}
+      const soon = /soon|unreleased|upcoming|not released/i.test(g.badge || "");
+      const cls = ["game", wide.has(i) ? "wide" : "", left % 3 === 1 && left < 4 && i === games.length - 1 ? "full" : ""].filter(Boolean).join(" ");
+      return `<${tag} class="${cls}"${attrs}>
+        <span class="game-img${cover ? " cover" : ""}${okBg ? " plate" : ""}"${okBg ? ` style="background:${esc(g.bg.trim())}"` : ""}>${art}
+          ${g.badge ? `<span class="game-badge${soon ? " soon" : ""}${/current/i.test(g.badge) ? " live" : ""}"><i></i>${esc(g.badge)}</span>` : ""}
+          ${g.url ? `<span class="game-play">${/roblox\.com\/games/.test(g.url) ? "Play" : "Visit"} ↗</span>` : ""}
+        </span>
+        <span class="game-info">
+          <span class="game-text">
+            <span class="game-name">${esc(g.game)}</span>
+            <span class="game-role">${esc([g.role, g.studio].filter(Boolean).join(" · "))}</span>
+          </span>
+          ${g.visits || g.ccu ? `<span class="game-nums">${g.visits ? `<b>${esc(g.visits)}</b><small>visits</small>` : ""}${g.ccu ? `<em>${esc(g.ccu)} peak CCU</em>` : ""}</span>` : ""}
+        </span>
       </${tag}>`;
     }).join("");
     $("#games").hidden = !games.length;
