@@ -1,65 +1,54 @@
 [
   {
-    "id": "props-vol1",
-    "title": "Stylized Props Vol. 1",
-    "tagline": "24 game-ready props for towns, docks and storage rooms.",
-    "cover": "media/packs/props-vol1.svg",
+    "id": "stud-pack",
+    "title": "Stud Pack",
+    "tagline": "Voxel asset pack in the classic stud style, with everything you need to dress a full map.",
+    "images": [
+      "media/packs/stud-pack.webp"
+    ],
     "featured": true,
-    "priceEur": "12",
-    "priceRobux": "1200",
+    "priceUsd": "30",
+    "priceRobux": "10400",
     "includes": [
-      "24 props, 60 to 900 tris each",
-      "1K palette texture shared by every prop",
-      ".fbx, .blend and a Roblox model file",
-      "Commercial use in your Roblox games"
+      "Trees in 4 colors, pines, palms and dead trees",
+      "Terrain blocks, rocks, bushes and mushrooms",
+      "Chests, market stall, fountain, bench and signs",
+      "Tools, fruits, fences and small props"
     ],
     "paypalUrl": "",
     "robuxUrl": ""
   },
   {
-    "id": "nature-kit",
-    "title": "Nature Kit",
-    "tagline": "Trees, mushrooms and crystals for forest and cave biomes.",
-    "cover": "media/packs/nature-kit.svg",
+    "id": "halloween-stud-pack",
+    "title": "Halloween Stud Pack",
+    "tagline": "50+ spooky voxel assets in the same stud style.",
+    "images": [
+      "media/packs/halloween-stud-pack.webp"
+    ],
     "featured": false,
-    "priceEur": "9",
-    "priceRobux": "900",
+    "priceUsd": "15",
+    "priceRobux": "6000",
     "includes": [
-      "18 nature assets",
-      "1K palette texture",
-      ".fbx and .blend"
+      "50+ assets",
+      "Haunted trees, pumpkins, tombstones and coffins",
+      "Cauldron, potions, witch hats and candles",
+      "Iron fences, pillars and market stalls"
     ],
     "paypalUrl": "",
     "robuxUrl": ""
   },
   {
-    "id": "loot-pack",
-    "title": "Loot Pack",
-    "tagline": "Weapons and accessories sized for tools and drops.",
-    "cover": "media/packs/loot-icons.svg",
-    "featured": false,
-    "priceEur": "7",
-    "priceRobux": "700",
-    "includes": [
-      "10 weapons and accessories",
-      "1K palette texture",
-      ".fbx and .blend"
+    "id": "stylized-trees",
+    "title": "Stylized Trees",
+    "tagline": "Leafy stylized trees with matching bushes, in a full range of colors.",
+    "images": [
+      "media/packs/stylized-trees.webp"
     ],
-    "paypalUrl": "",
-    "robuxUrl": ""
-  },
-  {
-    "id": "crystal-caves",
-    "title": "Crystal Caves",
-    "tagline": "Rocks and crystal clusters that snap into cave layouts.",
-    "cover": "media/packs/crystal-caves.svg",
     "featured": false,
-    "priceEur": "10",
-    "priceRobux": "1000",
+    "priceUsd": "",
+    "priceRobux": "",
     "includes": [
-      "14 rocks and crystals",
-      "1K palette texture",
-      ".fbx and .blend"
+      "Trees and bushes in green, pink, cyan, orange, red and blue"
     ],
     "paypalUrl": "",
     "robuxUrl": ""

@@ -13,6 +13,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Geist:wght@400;500;600&family=Geist+Mono:wght@500&display=swap">
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/theme-dark.css">
+<link rel="stylesheet" href="css/packs.css">
 </head>
 <body>
 <!--APP-->
@@ -124,16 +125,38 @@
 
   <!-- ============ PACKS ============ -->
   <div class="page" id="page-packs" hidden>
-    <section class="sec shop-first" id="featured">
-      <div class="wrap shop-intro"><h1 class="shop-name"><span data-bind="name">Sauce</span>'s Packs</h1></div>
-      <div class="wrap" id="featured-pack"></div>
+    <section class="shop-hero" id="shop-home">
+      <div class="shop-glow" aria-hidden="true"><i></i><i></i><i></i></div>
+      <div class="shop-floor" aria-hidden="true"></div>
+      <div class="wrap shop-hero-in">
+        <span class="kicker"><span><span data-bind="name">Sauce</span>'s Packs</span></span>
+        <h1 class="shop-title"><span id="shop-headline">Asset packs</span> <em id="shop-accent">made for Roblox.</em></h1>
+        <p class="shop-sub" id="shop-intro"></p>
+        <div class="hero-cta">
+          <button type="button" class="btn btn-primary" data-goto="featured">Browse the packs<svg><use href="#i-arrow"/></svg></button>
+          <button type="button" class="btn btn-white" data-goto="buying">How buying works</button>
+        </div>
+        <dl class="stats shop-stats" id="shop-stats"></dl>
+      </div>
+    </section>
+
+    <div class="marquee" aria-hidden="true"><div class="marquee-track" id="marquee"></div></div>
+
+    <section class="sec" id="featured">
+      <div class="wrap">
+        <div class="sec-head">
+          <div><span class="kicker">Featured</span><h2>Take a closer look</h2></div>
+          <p id="featured-hint">Use the arrows to flip through the packs.</p>
+        </div>
+        <div id="featured-pack"></div>
+      </div>
     </section>
 
     <section class="sec" id="all-packs">
       <div class="wrap">
         <div class="sec-head">
           <div><span class="kicker">Shop</span><h2>Browse the packs</h2></div>
-          <p>Every pack is game-ready and tested in Roblox Studio.</p>
+          <p>Click a pack to see it bigger.</p>
         </div>
         <div class="pack-grid" id="pack-grid"></div>
       </div>
@@ -158,6 +181,20 @@
           <div><span class="kicker">FAQ</span><h2>Questions</h2></div>
         </div>
         <div class="faq" id="faq"></div>
+      </div>
+    </section>
+
+    <section class="sec" id="custom">
+      <div class="wrap">
+        <div class="shop-end">
+          <span class="kicker">Custom work</span>
+          <h2>Need something <em>made for your game?</em></h2>
+          <p>I also take commissions: props, weapons, creatures and full asset packs.</p>
+          <div class="hero-cta">
+            <a class="btn btn-primary" data-href="ctaUrl" href="#" target="_blank" rel="noopener"><svg><use href="#i-discord"/></svg>Let's Talk</a>
+            <a class="btn btn-white" href="#portfolio" data-door="portfolio">See my work<svg><use href="#i-arrow"/></svg></a>
+          </div>
+        </div>
       </div>
     </section>
   </div>

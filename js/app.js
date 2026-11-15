@@ -188,55 +188,146 @@
   }
 
   /* ---------- packs ---------- */
-  function buyButtons(p, big) {
-    const a = (url, cls, label, kind) => url
-      ? `<a class="btn ${cls}" href="${esc(url)}" target="_blank" rel="noopener">${label}</a>`
-      : `<a class="btn ${cls}" href="#" data-nolink="${kind}">${label}</a>`;
-    return `<div class="buy-row">${a(p.paypalUrl, "btn-primary", big ? "Buy with PayPal" : "PayPal", "paypal")}${a(p.robuxUrl, "btn-white", big ? "Buy with Robux" : "Robux", "robux")}</div>`;
-  }
+  let buyLink = "";   // where "Buy on Discord" goes when a pack has no payment link yet
+  const packImages = (p) => (Array.isArray(p.images) && p.images.length ? p.images : [p.cover]).filter(Boolean);
   const rbx = (v) => `R$ ${num(v)}`;
-  function renderPacks(d) {
-    const packs = d.packs || [], shop = d.shop || {};
-    const feat = packs.find((p) => p.featured) || packs[0];
-    const rest = packs.filter((p) => p !== feat);
+  function buyButtons(p, big) {
+    const out = [];
+    const link = (url, cls, label) => `<a class="btn ${cls}" href="${esc(url)}" target="_blank" rel="noopener">${label}</a>`;
+    if (p.paypalUrl) out.push(link(p.paypalUrl, "btn-primary", big ? "Buy with PayPal" : "PayPal"));
+    if (p.robuxUrl) out.push(link(p.robuxUrl, p.paypalUrl ? "btn-white" : "btn-primary", big ? "Buy with Robux" : "Robux"));
+    if (!out.length) out.push(buyLink
+      ? link(buyLink, "btn-primary", `${icon("discord")}Buy on Discord`)
+      : `<a class="btn btn-primary" href="#" data-nolink="contact">${icon("discord")}Buy on Discord</a>`);
+    return `<div class="buy-row${out.length === 1 ? " one" : ""}">${out.join("")}</div>`;
+  }
+  const priceHtml = (p) => p.priceUsd || p.priceRobux
+    ? `${p.priceUsd ? `<b>$${esc(p.priceUsd)}</b>` : ""}${p.priceUsd && p.priceRobux ? "<span>or</span>" : ""}${p.priceRobux ? `<span class="rbx">${rbx(p.priceRobux)}</span>` : ""}`
+    : `<b class="ask">Price on request</b>`;
+  // an image shown whole (no cropping) over a blurred copy of itself, so any image ratio fills its frame
+  const fit = (src, alt, lazy) => `<img class="fit-bg" src="${esc(src)}" alt="" aria-hidden="true"${lazy ? ' loading="lazy"' : ""}><img class="fit-img" src="${esc(src)}" alt="${esc(alt)}"${lazy ? ' loading="lazy"' : ""}>`;
 
-    $("#featured-pack").innerHTML = feat ? `
-      <article class="fx">
+  /* featured carousel: one slide per pack image, featured pack first */
+  let fxSlides = [], fxCur = 0, fxTimer = null, fxPaused = false, fxNote = "";
+  const fxBody = (p) => `
+    <div class="fx-main">
+      <h2 class="fx-title">${esc(p.title)}</h2>
+      <p class="feat-tag">${esc(p.tagline)}</p>
+      ${(p.includes || []).length ? `<ul class="checks">${p.includes.map((x) => `<li>${icon("check")}${esc(x)}</li>`).join("")}</ul>` : ""}
+    </div>
+    <div class="fx-buy">
+      <div class="price">${priceHtml(p)}</div>
+      ${buyButtons(p, true)}
+      ${fxNote ? `<p class="buy-note">${esc(fxNote)}</p>` : ""}
+    </div>`;
+  function fxShow(i, byUser) {
+    const n = fxSlides.length; if (!n) return;
+    const before = fxSlides[fxCur]?.pack;
+    fxCur = ((i % n) + n) % n;
+    const s = fxSlides[fxCur];
+    $$("#fx-media .fx-slide").forEach((el, k) => el.classList.toggle("on", k === fxCur));
+    $$("#fx-dots button").forEach((el, k) => el.setAttribute("aria-current", k === fxCur));
+    // every pack's text sits in the same grid cell, so the card keeps the height of the longest one
+    if (s.pack !== before || !$("#fx-panes .on")) $$("#fx-panes .fx-pane").forEach((el, k) => el.classList.toggle("on", k === s.pi));
+    $("#fx-badge").hidden = !s.pack.featured;
+    const tag = $("#fx-tag"); tag.hidden = !s.pack.priceUsd; tag.textContent = s.pack.priceUsd ? `$${s.pack.priceUsd}` : "";
+    if (byUser) fxAuto();
+  }
+  function fxAuto() {
+    clearInterval(fxTimer);
+    if (REDUCED || fxSlides.length < 2) return;
+    fxTimer = setInterval(() => { if (!fxPaused && !document.hidden && !$("#page-packs").hidden) fxShow(fxCur + 1); }, 5000);
+  }
+
+  function renderPacks(d) {
+    const all = d.packs || [], shop = d.shop || {};
+    const feat = all.find((p) => p.featured) || all[0];
+    const packs = feat ? [feat, ...all.filter((p) => p !== feat)] : [];
+    buyLink = d.profile?.ctaUrl || "";
+    fxNote = shop.buyNote || "";
+
+    // hero
+    if (shop.headline) $("#shop-headline").textContent = shop.headline;
+    if (shop.headlineAccent != null) $("#shop-accent").textContent = shop.headlineAccent;
+    $("#shop-intro").textContent = shop.intro || "";
+    const prices = packs.map((p) => Number(p.priceUsd)).filter((x) => Number.isFinite(x) && x > 0);
+    $("#shop-stats").innerHTML = [
+      [packs.length, packs.length === 1 ? "pack available" : "packs available"],
+      prices.length ? [`$${Math.min(...prices)}`, "starting price"] : null,
+      ["PayPal · R$", "ways to pay"],
+    ].filter(Boolean).map(([a, b]) => `<div><dt>${esc(a)}</dt><dd>${esc(b)}</dd></div>`).join("");
+    const words = [...packs.map((p) => p.title), ...(shop.tags || [])].filter(Boolean);
+    const strip = words.map((w, i) => `<span${i % 2 ? ' class="o"' : ""}>${esc(w)}</span>`).join("");
+    $("#marquee").innerHTML = words.length ? strip.repeat(Math.ceil(24 / words.length)).repeat(2) : "";
+    $(".marquee").hidden = !words.length;
+
+    // featured carousel
+    fxSlides = packs.flatMap((p, pi) => packImages(p).map((src) => ({ pack: p, pi, src })));
+    fxCur = 0;
+    $("#featured-pack").innerHTML = fxSlides.length ? `
+      <article class="fx" id="fx">
         <span class="fx-ring" aria-hidden="true"></span>
         <div class="fx-in">
-          <div class="fx-media">
-            <img src="${esc(feat.cover)}" alt="${esc(feat.title)}">
+          <div class="fx-media" id="fx-media">
+            ${fxSlides.map((s, i) => `<figure class="fx-slide${i ? "" : " on"}">${fit(s.src, s.pack.title, i > 0)}</figure>`).join("")}
             <span class="fx-shine" aria-hidden="true"></span>
-            <span class="fx-badge">${icon("sparkle")}Featured pack</span>
-            ${feat.priceEur ? `<span class="fx-tag">€${esc(feat.priceEur)}</span>` : ""}
+            <span class="fx-badge" id="fx-badge">${icon("sparkle")}Featured pack</span>
+            <span class="fx-tag" id="fx-tag"></span>
+            ${fxSlides.length > 1 ? `
+            <button type="button" class="fx-nav fx-prev" data-step="-1" aria-label="Previous image">‹</button>
+            <button type="button" class="fx-nav fx-next" data-step="1" aria-label="Next image">›</button>
+            <div class="fx-dots" id="fx-dots">${fxSlides.map((s, i) => `<button type="button" data-slide="${i}" aria-label="Image ${i + 1}: ${esc(s.pack.title)}"></button>`).join("")}</div>` : ""}
           </div>
-          <div class="fx-body">
-            <div class="fx-main">
-              <h2 class="fx-title">${esc(feat.title)}</h2>
-              <p class="feat-tag">${esc(feat.tagline)}</p>
-              ${(feat.includes || []).length ? `<ul class="checks">${feat.includes.map((x) => `<li>${icon("check")}${esc(x)}</li>`).join("")}</ul>` : ""}
-            </div>
-            <div class="fx-buy">
-              <div class="price">${feat.priceEur ? `<b>€${esc(feat.priceEur)}</b>` : ""}${feat.priceRobux ? `<span>or</span><span class="rbx">${rbx(feat.priceRobux)}</span>` : ""}</div>
-              ${buyButtons(feat, true)}
-              <p class="buy-note">Files are delivered right after payment.</p>
-            </div>
-          </div>
+          <div class="fx-panes" id="fx-panes">${packs.map((p) => `<div class="fx-body fx-pane">${fxBody(p)}</div>`).join("")}</div>
         </div>
       </article>` : "";
-    $("#featured").hidden = !feat;
+    $("#featured").hidden = !fxSlides.length;
+    $("#featured-hint").hidden = fxSlides.length < 2;
+    if (fxSlides.length) {
+      const fx = $("#fx"), media = $("#fx-media");
+      media.onclick = (e) => {
+        const nav = e.target.closest("[data-step]"), dot = e.target.closest("[data-slide]");
+        if (nav) fxShow(fxCur + Number(nav.dataset.step), true);
+        else if (dot) fxShow(Number(dot.dataset.slide), true);
+      };
+      fx.addEventListener("mouseenter", () => { fxPaused = true; });
+      fx.addEventListener("mouseleave", () => { fxPaused = false; });
+      fx.addEventListener("focusin", () => { fxPaused = true; });
+      fx.addEventListener("focusout", () => { fxPaused = false; });
+      let x0 = null;
+      media.addEventListener("touchstart", (e) => { x0 = e.touches[0].clientX; }, { passive: true });
+      media.addEventListener("touchend", (e) => {
+        if (x0 == null) return; const dx = e.changedTouches[0].clientX - x0; x0 = null;
+        if (Math.abs(dx) > 40) fxShow(fxCur + (dx < 0 ? 1 : -1), true);
+      });
+      fxShow(0);
+      fxAuto();
+    }
 
-    $("#pack-grid").innerHTML = rest.map((p) => `
+    // every pack, as cards
+    $("#pack-grid").innerHTML = packs.map((p, i) => {
+      const imgs = packImages(p);
+      return `
       <article class="card pack">
-        <div class="pack-img"><img src="${esc(p.cover)}" alt="${esc(p.title)}" loading="lazy"></div>
+        <button type="button" class="pack-img" data-pack="${i}" aria-label="See ${esc(p.title)} bigger">
+          ${imgs[0] ? fit(imgs[0], p.title, true) : ""}
+          ${p.featured ? `<span class="pack-flag">${icon("sparkle")}Featured</span>` : ""}
+          ${imgs.length > 1 ? `<span class="pack-count">${imgs.length} images</span>` : ""}
+        </button>
         <div class="pack-body">
           <h3>${esc(p.title)}</h3>
           <p>${esc(p.tagline)}</p>
-          <div class="pack-price">${p.priceEur ? `<b>€${esc(p.priceEur)}</b>` : "<span></span>"}${p.priceRobux ? `<span class="rbx">${rbx(p.priceRobux)}</span>` : ""}</div>
+          <div class="pack-price">${priceHtml(p)}</div>
           ${buyButtons(p, false)}
         </div>
-      </article>`).join("");
-    $("#all-packs").hidden = !rest.length;
+      </article>`;
+    }).join("");
+    $("#pack-grid").onclick = (e) => {
+      const b = e.target.closest("[data-pack]"); if (!b) return;
+      const k = fxSlides.findIndex((s) => s.pack === packs[Number(b.dataset.pack)]);
+      if (k >= 0) { fxShow(k, true); goto("featured"); }
+    };
+    $("#all-packs").hidden = !packs.length;
 
     $("#paypal-steps").innerHTML = (shop.paypalSteps || []).map((s) => `<li>${esc(s)}</li>`).join("");
     $("#robux-steps").innerHTML = (shop.robuxSteps || []).map((s) => `<li>${esc(s)}</li>`).join("");
@@ -246,7 +337,7 @@
   /* ---------- routing + dock ---------- */
   const DOCKS = {
     portfolio: [["home", "Home"], ["work", "Work"], ["games", "Games"], ["about", "About"], ["contact", "Contact"]],
-    packs: [["featured", "Featured"], ["all-packs", "Packs"], ["buying", "Buying"], ["faq-sec", "FAQ"]],
+    packs: [["shop-home", "Home"], ["featured", "Featured"], ["all-packs", "Packs"], ["buying", "Buying"], ["faq-sec", "FAQ"]],
   };
   let io;
   function route() {
@@ -270,7 +361,7 @@
     const el = document.getElementById(id);
     if (!el) return;
     if (el.closest(".page")?.hidden) { location.hash = el.closest("#page-packs") ? "#packs" : "#portfolio"; setTimeout(() => goto(id), 40); return; }
-    const top = id === "home" || id === "featured";
+    const top = id === "home" || id === "shop-home";
     if (lenis) { lenis.scrollTo(top ? 0 : el, { offset: -86, duration: 1.3 }); return; }
     const smooth = !REDUCED;
     if (top) window.scrollTo({ top: 0, behavior: smooth ? "smooth" : "auto" });
@@ -318,7 +409,7 @@
     rio = new IntersectionObserver((entries) => entries.forEach((en) => { if (en.isIntersecting) { en.target.classList.add("in"); rio.unobserve(en.target); } }), { rootMargin: "0px 0px -8% 0px" });
     const page = document.querySelector(".page:not([hidden])");
     if (!page) return;
-    $$(".sec-head, .tile, .game, .dp, .about-main, .end, .pack, .how-col, .faq details, .more, .filters", page).forEach((el, i) => {
+    $$(".sec-head, .tile, .game, .dp, .about-main, .end, .pack, .how-col, .faq details, .more, .filters, .fx, .shop-end", page).forEach((el, i) => {
       if (el.classList.contains("in")) return;
       el.classList.add("rv");
       const sib = el.parentElement ? Array.prototype.indexOf.call(el.parentElement.children, el) : 0;

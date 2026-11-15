@@ -40,7 +40,7 @@ Tu peux aussi éditer directement les `.json` sur github.com (icône crayon).
 - **Créations** : ce sont tes vraies images. Pour en ajouter une, mets l'image dans `media/creations/` et ajoute une ligne dans `content/creations.json` (ou passe par Pages CMS). Tu peux aussi mettre une vidéo `.mp4` (courte, sans son, moins de 10 Mo).
 - **Jeux** : `Game Title 1..4` sont des templates. Mets le vrai nom, le studio, **ce que tu as fait précisément**, les visites, le CCU, une miniature 16:9 et le lien Roblox.
 - **About** : le 2e paragraphe est à réécrire.
-- **Packs** : le pack coché « Pack vedette » s'affiche en grand en haut de la page Packs : image en 16:9 à gauche, infos et paiement à droite. Pour tous : noms, prix, images et surtout `paypalUrl` et `robuxUrl`. Tant qu'un lien est vide, le bouton affiche « This payment link isn't set up yet. » au lieu de casser.
+- **Packs** : chaque pack a une liste `images` ; toutes les images défilent dans le carrousel en haut de la page Packs (le pack coché « Pack vedette » passe en premier). Prix en `priceUsd` et `priceRobux`. Tant que `paypalUrl` et `robuxUrl` sont vides, le bouton d'achat renvoie vers ton Discord.
 
 ## 4. Paiements
 

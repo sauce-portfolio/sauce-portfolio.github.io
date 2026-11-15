@@ -1,11 +1,5 @@
 [
   {
-    "id": "treasure-chest",
-    "category": "Props",
-    "cover": "media/creations/treasure-chest.webp",
-    "video": ""
-  },
-  {
     "id": "crocodile",
     "category": "Creatures",
     "cover": "media/creations/crocodile.webp",
@@ -15,12 +9,6 @@
     "id": "raptor-mount",
     "category": "Creatures",
     "cover": "media/creations/raptor-mount.webp",
-    "video": ""
-  },
-  {
-    "id": "tesla-turret",
-    "category": "Others",
-    "cover": "media/creations/tesla-turret.webp",
     "video": ""
   },
   {
@@ -54,39 +42,9 @@
     "video": ""
   },
   {
-    "id": "ice-trophy",
-    "category": "Props",
-    "cover": "media/creations/ice-trophy.webp",
-    "video": ""
-  },
-  {
-    "id": "voxel-map",
-    "category": "Voxel-Low Poly",
-    "cover": "media/creations/voxel-map.webp",
-    "video": ""
-  },
-  {
-    "id": "toucan-trophy",
-    "category": "Props",
-    "cover": "media/creations/toucan-trophy.webp",
-    "video": ""
-  },
-  {
     "id": "flesh-sword",
     "category": "Weapons",
     "cover": "media/creations/flesh-sword.webp",
-    "video": ""
-  },
-  {
-    "id": "lava-trophy",
-    "category": "Props",
-    "cover": "media/creations/lava-trophy.webp",
-    "video": ""
-  },
-  {
-    "id": "ocean-trophy",
-    "category": "Props",
-    "cover": "media/creations/ocean-trophy.webp",
     "video": ""
   },
   {
@@ -96,33 +54,9 @@
     "video": ""
   },
   {
-    "id": "voxel-weapons",
-    "category": "Voxel-Low Poly",
-    "cover": "media/creations/voxel-weapons.webp",
-    "video": ""
-  },
-  {
-    "id": "stud-pack",
-    "category": "Voxel-Low Poly",
-    "cover": "media/creations/stud-pack.webp",
-    "video": ""
-  },
-  {
     "id": "golden-shield",
     "category": "Weapons",
     "cover": "media/creations/golden-shield.webp",
-    "video": ""
-  },
-  {
-    "id": "oil-pump",
-    "category": "Others",
-    "cover": "media/creations/oil-pump.webp",
-    "video": ""
-  },
-  {
-    "id": "tool-set",
-    "category": "Voxel-Low Poly",
-    "cover": "media/creations/tool-set.webp",
     "video": ""
   },
   {
@@ -147,6 +81,72 @@
     "id": "bone-blade",
     "category": "Weapons",
     "cover": "media/creations/bone-blade.webp",
+    "video": ""
+  },
+  {
+    "id": "treasure-chests",
+    "category": "Props",
+    "cover": "media/creations/treasure-chests.webp",
+    "video": ""
+  },
+  {
+    "id": "ice-trophy",
+    "category": "Props",
+    "cover": "media/creations/ice-trophy.webp",
+    "video": ""
+  },
+  {
+    "id": "toucan-trophy",
+    "category": "Props",
+    "cover": "media/creations/toucan-trophy.webp",
+    "video": ""
+  },
+  {
+    "id": "lava-trophy",
+    "category": "Props",
+    "cover": "media/creations/lava-trophy.webp",
+    "video": ""
+  },
+  {
+    "id": "ocean-trophy",
+    "category": "Props",
+    "cover": "media/creations/ocean-trophy.webp",
+    "video": ""
+  },
+  {
+    "id": "tesla-turret",
+    "category": "Others",
+    "cover": "media/creations/tesla-turret.webp",
+    "video": ""
+  },
+  {
+    "id": "oil-pump",
+    "category": "Others",
+    "cover": "media/creations/oil-pump.webp",
+    "video": ""
+  },
+  {
+    "id": "voxel-map",
+    "category": "Voxel-Low Poly",
+    "cover": "media/creations/voxel-map.webp",
+    "video": ""
+  },
+  {
+    "id": "voxel-weapons",
+    "category": "Voxel-Low Poly",
+    "cover": "media/creations/voxel-weapons.webp",
+    "video": ""
+  },
+  {
+    "id": "stud-pack",
+    "category": "Voxel-Low Poly",
+    "cover": "media/creations/stud-pack.webp",
+    "video": ""
+  },
+  {
+    "id": "tool-set",
+    "category": "Voxel-Low Poly",
+    "cover": "media/creations/tool-set.webp",
     "video": ""
   }
 ]

@@ -46,13 +46,13 @@ content:
       - { name: id, label: "ID (sans espaces)", type: string, required: true }
       - { name: title, label: Nom du pack, type: string, required: true }
       - { name: tagline, label: Phrase courte, type: string }
-      - { name: cover, label: Image, type: image }
-      - { name: featured, label: "Pack vedette (en haut de la page)", type: boolean }
-      - { name: priceEur, label: "Prix en € (juste le nombre)", type: string }
+      - { name: images, label: "Images du pack (elles défilent dans le carrousel, ajoute-en autant que tu veux)", type: image, list: true }
+      - { name: featured, label: "Pack vedette (affiché en premier)", type: boolean }
+      - { name: priceUsd, label: "Prix en $ (juste le nombre, vide = « Price on request »)", type: string }
       - { name: priceRobux, label: "Prix en Robux (juste le nombre)", type: string }
       - { name: includes, label: "Contenu du pack (une ligne par élément)", type: string, list: true }
-      - { name: paypalUrl, label: "Lien de paiement PayPal (Payhip, Gumroad…)", type: string }
-      - { name: robuxUrl, label: "Lien de paiement Robux (hub Roblox, Parcel…)", type: string }
+      - { name: paypalUrl, label: "Lien de paiement PayPal (vide = bouton « Buy on Discord »)", type: string }
+      - { name: robuxUrl, label: "Lien de paiement Robux (vide = bouton « Buy on Discord »)", type: string }
 
   - name: shop
     label: Texte de la boutique
@@ -60,7 +60,11 @@ content:
     path: content/shop.json
     format: json
     fields:
+      - { name: headline, label: "Grand titre, ligne 1", type: string }
+      - { name: headlineAccent, label: "Grand titre, ligne 2 (en dégradé)", type: string }
       - { name: intro, label: Intro, type: text }
+      - { name: tags, label: "Mots du bandeau défilant", type: string, list: true }
+      - { name: buyNote, label: "Petite note sous le prix", type: string }
       - { name: paypalSteps, label: Étapes PayPal, type: string, list: true }
       - { name: robuxSteps, label: Étapes Robux, type: string, list: true }
       - name: faq
