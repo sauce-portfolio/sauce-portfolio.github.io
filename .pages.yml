@@ -22,19 +22,21 @@ content:
       - { name: video, label: "Vidéo turntable .mp4 (optionnel)", type: file }
 
   - name: contributions
-    label: Jeux (Contributions)
+    label: Studios et jeux (Contributions)
     type: file
     path: content/contributions.json
     format: json
     list: true
     fields:
-      - { name: game, label: Nom du jeu, type: string, required: true }
-      - { name: studio, label: Studio / groupe, type: string }
+      - { name: game, label: Nom du studio ou du jeu, type: string, required: true }
+      - { name: studio, label: "Studio / groupe (pour un jeu)", type: string }
+      - { name: badge, label: "Étiquette sur l'image (ex. Currently working with, Co-owner)", type: string }
       - { name: role, label: "Ce que tu as fait", type: string }
       - { name: visits, label: "Visites (ex. 250M+)", type: string }
       - { name: ccu, label: "Peak CCU (ex. 30K+)", type: string }
-      - { name: thumbnail, label: Miniature 16:9, type: image }
-      - { name: url, label: Lien du jeu Roblox, type: string }
+      - { name: thumbnail, label: "Logo ou miniature (vide = initiales)", type: image }
+      - { name: bg, label: "Couleur de fond derrière le logo (ex. #ffffff, vide = flou)", type: string }
+      - { name: url, label: Lien du site du studio ou du jeu Roblox, type: string }
 
   - name: packs
     label: Packs (boutique)

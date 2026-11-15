@@ -9,7 +9,7 @@ js/app.js           lit content/*.json et construit la page
 content/
   profile.json      nom, stat 550M+, about, réseaux, dispo, couleurs
   creations.json    la grille Work (juste les images)
-  contributions.json  les jeux
+  contributions.json  les studios et les jeux
   packs.json        la boutique (le pack avec "featured": true passe en haut)
   shop.json         l'intro de la boutique, les étapes d'achat et la FAQ
 media/              les images
@@ -38,7 +38,7 @@ Tu peux aussi éditer directement les `.json` sur github.com (icône crayon).
 ## 3. Ce qu'il faut remplacer (templates)
 
 - **Créations** : ce sont tes vraies images. Pour en ajouter une, mets l'image dans `media/creations/` et ajoute une ligne dans `content/creations.json` (ou passe par Pages CMS). Tu peux aussi mettre une vidéo `.mp4` (courte, sans son, moins de 10 Mo).
-- **Jeux** : `Game Title 1..4` sont des templates. Mets le vrai nom, le studio, **ce que tu as fait précisément**, les visites, le CCU, une miniature 16:9 et le lien Roblox.
+- **Studios et jeux** : une carte par studio ou par jeu, avec son logo (ou sa miniature), une étiquette optionnelle (« Currently working with », « Co-owner »), les visites, le peak CCU et le lien. Un champ vide n'est simplement pas affiché.
 - **About** : le 2e paragraphe est à réécrire.
 - **Packs** : chaque pack a une liste `images` ; toutes les images défilent dans le carrousel en haut de la page Packs (le pack coché « Pack vedette » passe en premier). Prix en `priceUsd` et `priceRobux`. Tant que `paypalUrl` et `robuxUrl` sont vides, le bouton d'achat renvoie vers ton Discord.
 

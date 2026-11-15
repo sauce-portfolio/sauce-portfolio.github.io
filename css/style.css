@@ -212,6 +212,13 @@ main, .foot { position: relative; z-index: 2; }
 .game:hover .game-img img { transform: scale(1.04); }
 .game-play { position: absolute; right: 10px; top: 10px; font-size: 12.5px; font-weight: 600; padding: 6px 10px; border-radius: 999px; background: var(--card); opacity: 0; transition: opacity .2s; }
 .game:hover .game-play { opacity: 1; }
+.game-img .fit-img { padding: 15% 8% 5%; }
+.game-img[style] .fit-img { padding: 0; }
+.game-mono { position: absolute; inset: 0; display: grid; place-items: center; font: 800 clamp(44px, 5vw, 64px)/1 var(--f-display); letter-spacing: -.05em; color: var(--accent-ink);
+  background: radial-gradient(70% 90% at 50% 120%, color-mix(in srgb, var(--accent) 35%, transparent), transparent 70%), var(--tint); }
+.game-badge { position: absolute; left: 10px; top: 10px; display: inline-flex; align-items: center; gap: 7px; padding: 6px 10px; border-radius: 999px; font-size: 12.5px; font-weight: 600; color: var(--ink);
+  background: color-mix(in srgb, var(--card) 88%, transparent); border: 1px solid color-mix(in srgb, var(--accent) 45%, transparent); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
+.game-badge i { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 8px var(--accent); }
 .game-name { font: 700 19px/1.15 var(--f-display); letter-spacing: -.02em; }
 .game-role { font-size: 14px; color: var(--muted); }
 .game-nums { display: flex; gap: 12px; align-items: baseline; font-size: 13.5px; color: var(--muted); margin-top: 2px; }

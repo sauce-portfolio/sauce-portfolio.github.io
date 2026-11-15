@@ -68,15 +68,21 @@
     $("#stat-games").textContent = games.length;
 
 
-    // games grid
+    // studios + games grid (logo or thumbnail shown whole; a plain "bg" color replaces the blurred backdrop)
     $("#games-grid").innerHTML = games.map((g) => {
       const tag = g.url ? "a" : "div";
       const attrs = g.url ? ` href="${esc(g.url)}" target="_blank" rel="noopener"` : "";
+      const okBg = /^#[0-9a-f]{3,8}$/i.test(String(g.bg || "").trim());
+      const mono = String(g.game || "").split(/\s+/).map((w) => w[0] || "").join("").slice(0, 2).toUpperCase();
+      const art = g.thumbnail
+        ? `${okBg ? "" : `<img class="fit-bg" src="${esc(g.thumbnail)}" alt="" aria-hidden="true" loading="lazy">`}<img class="fit-img" src="${esc(g.thumbnail)}" alt="${esc(g.game)}" loading="lazy">`
+        : `<span class="game-mono" aria-hidden="true">${esc(mono)}</span>`;
+      const nums = `${g.visits ? `<b>${esc(g.visits)}</b> visits` : ""}${g.ccu ? `<span>${esc(g.ccu)} peak CCU</span>` : ""}`;
       return `<${tag} class="game"${attrs}>
-        <span class="game-img"><img src="${esc(g.thumbnail)}" alt="" loading="lazy">${g.url ? `<span class="game-play">Play ↗</span>` : ""}</span>
+        <span class="game-img"${okBg ? ` style="background:${esc(g.bg.trim())}"` : ""}>${art}${g.badge ? `<span class="game-badge"><i></i>${esc(g.badge)}</span>` : ""}${g.url ? `<span class="game-play">${/roblox\.com\/games/.test(g.url) ? "Play" : "Visit"} ↗</span>` : ""}</span>
         <span class="game-name">${esc(g.game)}</span>
-        <span class="game-role">${esc(g.role)}${g.studio ? ` · ${esc(g.studio)}` : ""}</span>
-        <span class="game-nums">${g.visits ? `<b>${esc(g.visits)}</b> visits` : ""}${g.ccu ? `<span>${esc(g.ccu)} CCU</span>` : ""}</span>
+        <span class="game-role">${esc([g.role, g.studio].filter(Boolean).join(" · "))}</span>
+        ${nums ? `<span class="game-nums">${nums}</span>` : ""}
       </${tag}>`;
     }).join("");
     $("#games").hidden = !games.length;
