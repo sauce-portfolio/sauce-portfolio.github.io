@@ -38,9 +38,11 @@
   <div class="page" id="page-portfolio">
     <section class="hero hero-mint" id="home">
       <div class="glow" aria-hidden="true"><i></i><i></i><i></i></div>
+      <div class="spot" aria-hidden="true"></div>
       <div class="wrap hero-grid">
         <div class="hero-text">
-          <h1 class="wordmark" data-bind="name">Sauce</h1>
+          <span class="hero-pill"><i></i>Stylized · Game-ready · Optimized</span>
+          <div class="wm-tilt"><h1 class="wordmark" id="wordmark" data-bind="name">Sauce</h1></div>
           <p class="hero-sub" data-bind="tagline"></p>
           <dl class="stats">
             <div><dt data-bind="visits">3.4B+</dt><dd>visits contributed</dd></div>
@@ -51,7 +53,12 @@
             <a class="btn btn-primary" data-href="ctaUrl" href="#" target="_blank" rel="noopener"><svg><use href="#i-discord"/></svg>Let's Talk</a>
             <button type="button" class="btn btn-white" data-goto="work">My Work<svg><use href="#i-arrow"/></svg></button>
           </div>
+          <div class="trusted" id="trusted" hidden><span class="trusted-label">Worked with</span><div class="trusted-row" id="trusted-row"></div></div>
         </div>
+      </div>
+      <div class="showcase" id="showcase" hidden>
+        <div class="sc-floor" aria-hidden="true"></div>
+        <div class="sc-plane"><div class="sc-row" id="sc-1"></div><div class="sc-row sc-rev" id="sc-2"></div></div>
       </div>
     </section>
 

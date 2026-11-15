@@ -194,6 +194,59 @@ main, .foot { position: relative; z-index: 2; }
 .hero-cta .btn { min-height: 54px; padding: 0 28px; font-size: 16.5px; }
 
 
+/* ---------- Hero extras: pill, tilt + light sweep, worked-with row, 3D wall of creations ---------- */
+.hero-mint { padding-bottom: 0; }
+.spot { position: absolute; inset: 0; pointer-events: none; opacity: 0; transition: opacity .5s;
+  background: radial-gradient(520px circle at var(--px, 50%) var(--py, 40%), color-mix(in srgb, var(--accent) 22%, transparent), transparent 60%); }
+.hero:hover .spot { opacity: 1; }
+.hero-pill { display: inline-flex; align-items: center; gap: 10px; padding: 8px 16px 8px 12px; border-radius: 999px; font: 500 13px/1 var(--f-mono); letter-spacing: .12em; text-transform: uppercase;
+  color: var(--accent-ink); background: color-mix(in srgb, var(--card) 60%, transparent); border: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+  -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); margin-bottom: -6px; }
+.hero-pill i { width: 8px; height: 8px; background: var(--accent); transform: rotate(45deg); border-radius: 2px; box-shadow: 0 0 12px var(--accent); }
+.wm-tilt { perspective: 900px; }
+.wm-tilt .wordmark { position: relative; transform-style: preserve-3d; }
+.wm-tilt { transform: rotateX(calc(var(--my, 0) * -9deg)) rotateY(calc(var(--mx, 0) * 12deg)); transition: transform .35s cubic-bezier(.2, .7, .2, 1); }
+.wordmark::after {
+  content: attr(data-text); position: absolute; inset: 0; pointer-events: none; text-shadow: none; color: transparent;
+  background: linear-gradient(105deg, transparent 38%, rgba(255, 255, 255, .95) 48%, color-mix(in srgb, var(--accent) 40%, #fff) 52%, transparent 62%);
+  background-size: 300% 100%; background-position: 120% 0; -webkit-background-clip: text; background-clip: text;
+  animation: wm-sweep 6s cubic-bezier(.45, 0, .2, 1) 1.2s infinite;
+}
+@keyframes wm-sweep { 0% { background-position: 120% 0; } 45%, 100% { background-position: -20% 0; } }
+
+.trusted { display: grid; justify-items: center; gap: 12px; margin-top: 18px; }
+.trusted-label { font: 500 12px/1 var(--f-mono); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.trusted-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+.tl { display: inline-flex; align-items: center; gap: 10px; padding: 6px 16px 6px 6px; border-radius: 999px; text-decoration: none; font-weight: 600; font-size: 14.5px;
+  background: color-mix(in srgb, var(--card) 70%, transparent); border: 1px solid var(--line); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+  transition: transform .25s, border-color .25s, box-shadow .25s; }
+a.tl:hover { transform: translateY(-2px); border-color: color-mix(in srgb, var(--accent) 60%, transparent); box-shadow: 0 10px 30px -12px color-mix(in srgb, var(--accent) 60%, transparent); }
+.tl-logo { width: 34px; height: 34px; border-radius: 50%; overflow: hidden; display: grid; place-items: center; background: #0b0e16; flex: none; }
+.tl-logo img { width: 100%; height: 100%; object-fit: contain; }
+.tl-logo[style] img { padding: 5px; }
+
+.showcase { position: relative; margin-top: clamp(30px, 5vw, 60px); height: clamp(300px, 34vw, 470px); overflow: hidden; pointer-events: none;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 22%, #000 62%, transparent 100%), linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+  -webkit-mask-composite: source-in; mask-image: linear-gradient(to bottom, transparent 0%, #000 22%, #000 62%, transparent 100%), linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent); mask-composite: intersect; }
+.sc-floor { position: absolute; left: -40%; right: -40%; bottom: -10%; height: 140%;
+  --g: color-mix(in srgb, var(--accent) 30%, transparent);
+  background-image: linear-gradient(var(--g) 1px, transparent 1px), linear-gradient(90deg, var(--g) 1px, transparent 1px); background-size: 80px 80px;
+  transform: perspective(600px) rotateX(70deg); transform-origin: 50% 100%; animation: floor-run 4s linear infinite; }
+@keyframes floor-run { to { background-position: 0 80px; } }
+.sc-plane { position: absolute; left: 50%; top: 8%; width: 160%; display: grid; gap: 18px;
+  transform: translateX(-50%) perspective(1400px) rotateX(24deg) rotateZ(-6deg); transform-origin: 50% 0; }
+.sc-row { display: flex; gap: 18px; width: max-content; animation: sc-left 70s linear infinite; pointer-events: auto; }
+.sc-rev { animation-name: sc-right; animation-duration: 80s; }
+.sc-copy { display: contents; }
+.showcase:hover .sc-row { animation-play-state: paused; }
+@keyframes sc-left { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@keyframes sc-right { from { transform: translateX(-50%); } to { transform: translateX(0); } }
+.sc-card { flex: none; width: clamp(220px, 22vw, 320px); aspect-ratio: 16 / 9; padding: 0; border-radius: 18px; overflow: hidden; cursor: zoom-in;
+  background: #07090f; border: 1px solid color-mix(in srgb, var(--accent) 22%, transparent);
+  box-shadow: 0 20px 40px -20px rgba(0, 0, 0, .9); transition: transform .35s cubic-bezier(.2, .7, .2, 1), border-color .35s, box-shadow .35s; }
+.sc-card img { width: 100%; height: 100%; object-fit: cover; }
+.sc-card:hover { transform: translateY(-10px) scale(1.04); border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent), 0 24px 60px -16px color-mix(in srgb, var(--accent) 70%, transparent); }
+
 /* ---------- Sections ---------- */
 .sec { padding-block: clamp(64px, 9vw, 112px); }
 .sec + .sec { padding-top: 0; }
@@ -519,6 +572,13 @@ main, .foot { position: relative; z-index: 2; }
   .glow i:nth-child(2) { width: 260px; height: 240px; left: 120px; }
   .glow i:nth-child(3) { width: 260px; height: 220px; left: 40px; top: 260px; }
   .stats { width: 100%; }
+  .hero-pill { font-size: 11.5px; }
+  .tl { font-size: 13px; padding-right: 12px; }
+  .tl-logo { width: 28px; height: 28px; }
+  .showcase { height: 260px; margin-top: 26px; }
+  .sc-plane { width: 260%; gap: 12px; }
+  .sc-row { gap: 12px; }
+  .sc-card { width: 190px; border-radius: 14px; }
   .stats div { flex: 1; padding: 12px; }
   .stats dt { font-size: 24px; }
   .stats dd { white-space: normal; font-size: 12px; }
@@ -551,4 +611,5 @@ main, .foot { position: relative; z-index: 2; }
   .rv { opacity: 1; transform: none; }
   html { scroll-behavior: auto; }
   .ticker { overflow-x: auto; }
+  .wm-tilt { transform: none; }
 }

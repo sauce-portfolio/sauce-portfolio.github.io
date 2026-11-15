@@ -68,6 +68,26 @@
     $("#stat-games").textContent = games.length;
 
 
+    // hero: "worked with" logos (released studios/games that have a logo) + 3D wall of creations
+    const trusted = games.filter((g) => g.thumbnail && !/soon|unreleased|upcoming/i.test(g.badge || ""));
+    $("#trusted-row").innerHTML = trusted.map((g) => {
+      const okBg = /^#[0-9a-f]{3,8}$/i.test(String(g.bg || "").trim());
+      const inner = `<span class="tl-logo"${okBg ? ` style="background:${esc(g.bg.trim())}"` : ""}><img src="${esc(g.thumbnail)}" alt=""></span><span>${esc(g.game)}</span>`;
+      return g.url ? `<a class="tl" href="${esc(g.url)}" target="_blank" rel="noopener">${inner}</a>` : `<span class="tl">${inner}</span>`;
+    }).join("");
+    $("#trusted").hidden = !trusted.length;
+    const wall = items.map((c, i) => ({ c, i })).filter(({ c }) => c.cover);
+    const half = Math.ceil(wall.length / 2);
+    const rowHtml = (list) => {
+      const one = list.map(({ c, i }) => `<button type="button" class="sc-card" data-i="${i}" aria-label="View image ${i + 1}"><img src="${esc(c.cover)}" alt="" loading="lazy"></button>`).join("");
+      // second copy makes the loop seamless; it is hidden from keyboard and screen readers
+      return one + `<span class="sc-copy" aria-hidden="true">${one.replace(/<button /g, '<button tabindex="-1" ')}</span>`;
+    };
+    $("#sc-1").innerHTML = rowHtml(wall.slice(0, half));
+    $("#sc-2").innerHTML = rowHtml(wall.slice(half).reverse());
+    $("#showcase").hidden = wall.length < 4;
+    $("#showcase").onclick = (e) => { const t = e.target.closest(".sc-card"); if (t) openViewer(+t.dataset.i); };
+
     // studios + games: big cards. The first two are wide; the last row is widened so it never leaves a hole.
     const wide = new Set([0, 1]);
     const left = games.length - 2;
@@ -437,14 +457,33 @@
     });
   }
 
+  /* ---------- hero: wordmark tilts toward the cursor, spotlight follows it ---------- */
+  function wireHero() {
+    const hero = $("#home"); if (!hero || REDUCED || !matchMedia("(pointer: fine)").matches) return;
+    let raf = 0, tx = 0, ty = 0, px = 50, py = 40;
+    hero.addEventListener("pointermove", (e) => {
+      const r = hero.getBoundingClientRect();
+      px = ((e.clientX - r.left) / r.width) * 100; py = ((e.clientY - r.top) / r.height) * 100;
+      tx = (px / 100 - 0.5) * 2; ty = (py / 100 - 0.5) * 2;
+      if (!raf) raf = requestAnimationFrame(() => {
+        raf = 0;
+        hero.style.setProperty("--mx", tx.toFixed(3)); hero.style.setProperty("--my", ty.toFixed(3));
+        hero.style.setProperty("--px", `${px.toFixed(1)}%`); hero.style.setProperty("--py", `${py.toFixed(1)}%`);
+      });
+    });
+    hero.addEventListener("pointerleave", () => { hero.style.setProperty("--mx", 0); hero.style.setProperty("--my", 0); });
+  }
+
   /* ---------- boot ---------- */
   wireClicks();
   wireViewer();
+  wireHero();
   load().then((d) => {
     items = d.creations || [];
     applyTheme(d.profile.theme);
     applyTheme(d.profile.packsTheme, true);
     bind(d.profile);
+    const wm = $("#wordmark"); if (wm) wm.dataset.text = wm.textContent;
     renderPortfolio(d);
     renderPacks(d);
     route();
