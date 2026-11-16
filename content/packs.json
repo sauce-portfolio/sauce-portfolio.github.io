@@ -52,5 +52,59 @@
     ],
     "paypalUrl": "",
     "robuxUrl": ""
+  },
+  {
+    "id": "ranged-weapons-pack",
+    "title": "Ranged Weapons Pack",
+    "tagline": "Guns, crossbow, bow, slingshot and throwables in the stud style.",
+    "images": [
+      "media/packs/ranged-weapons-pack.webp"
+    ],
+    "featured": false,
+    "priceUsd": "5",
+    "priceRobux": "",
+    "includes": [
+      "Blaster and revolver",
+      "Crossbow, bow and slingshot",
+      "Kunai and shuriken"
+    ],
+    "paypalUrl": "",
+    "robuxUrl": ""
+  },
+  {
+    "id": "tools-pack",
+    "title": "Tools Pack",
+    "tagline": "Axe, fishing rod, shovel and pickaxe in three tiers, smooth and stud versions.",
+    "images": [
+      "media/packs/tools-pack.webp"
+    ],
+    "featured": false,
+    "priceUsd": "10",
+    "priceRobux": "",
+    "includes": [
+      "Axe, fishing rod, shovel and pickaxe",
+      "3 tiers: basic, gold and mythic",
+      "Smooth and stud versions of every tool"
+    ],
+    "paypalUrl": "",
+    "robuxUrl": ""
+  },
+  {
+    "id": "melee-weapons-pack",
+    "title": "Melee Weapons Pack",
+    "tagline": "A sword, a mace, two spears, an axe and a scythe in the stud style.",
+    "images": [
+      "media/packs/melee-weapons-pack.webp"
+    ],
+    "featured": false,
+    "priceUsd": "5",
+    "priceRobux": "",
+    "includes": [
+      "Sword, mace and axe",
+      "Two spears",
+      "Purple scythe"
+    ],
+    "paypalUrl": "",
+    "robuxUrl": ""
   }
 ]
