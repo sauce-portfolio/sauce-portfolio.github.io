@@ -370,13 +370,12 @@
 
     $("#paypal-steps").innerHTML = (shop.paypalSteps || []).map((s) => `<li>${esc(s)}</li>`).join("");
     $("#robux-steps").innerHTML = (shop.robuxSteps || []).map((s) => `<li>${esc(s)}</li>`).join("");
-    $("#faq").innerHTML = (shop.faq || []).map((f) => `<details class="card"><summary>${esc(f.q)}</summary><p>${esc(f.a)}</p></details>`).join("");
   }
 
   /* ---------- routing + dock ---------- */
   const DOCKS = {
     portfolio: [["home", "Home"], ["work", "Work"], ["games", "Games"], ["about", "About"], ["contact", "Contact"]],
-    packs: [["shop-home", "Home"], ["featured", "Featured"], ["all-packs", "Packs"], ["buying", "Buying"], ["faq-sec", "FAQ"]],
+    packs: [["shop-home", "Home"], ["featured", "Featured"], ["all-packs", "Packs"], ["buying", "Buying"]],
   };
   let io;
   function route() {
