@@ -72,7 +72,7 @@
     const trusted = games.filter((g) => g.thumbnail && g.showInHero !== false && !/soon|unreleased|upcoming/i.test(g.badge || ""));
     $("#trusted-row").innerHTML = trusted.map((g) => {
       const okBg = /^#[0-9a-f]{3,8}$/i.test(String(g.bg || "").trim());
-      const inner = `<span class="tl-logo"${okBg ? ` style="background:${esc(g.bg.trim())}"` : ""}><img src="${esc(g.thumbnail)}" alt=""></span><span>${esc(g.game)}</span>`;
+      const inner = `<span class="tl-logo${g.icon ? " icon" : ""}"${okBg ? ` style="background:${esc(g.bg.trim())}"` : ""}><img src="${esc(g.icon || g.thumbnail)}" alt=""></span><span>${esc(g.game)}</span>`;
       return g.url ? `<a class="tl" href="${esc(g.url)}" target="_blank" rel="noopener">${inner}</a>` : `<span class="tl">${inner}</span>`;
     }).join("");
     $("#trusted").hidden = !trusted.length;
