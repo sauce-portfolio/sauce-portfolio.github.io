@@ -143,3 +143,11 @@ body.on-packs .btn-white:hover { border-color: color-mix(in srgb, var(--accent) 
   .marquee { padding: 14px 0; }
   .shop-end .hero-cta { width: 100%; }
 }
+
+/* a lone pack on the last row of the 3-column grid spans the row, picture left and text right */
+@media (min-width: 1021px) {
+  .pack-grid .pack:last-child:nth-child(3n+1) { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); }
+  .pack-grid .pack:last-child:nth-child(3n+1) .pack-img { height: 100%; border-bottom: 0; border-right: 1px solid var(--line); }
+  .pack-grid .pack:last-child:nth-child(3n+1) .pack-body { padding: 28px; justify-content: center; }
+  .pack-grid .pack:last-child:nth-child(3n+1) .pack-body h3 { font-size: 30px; }
+}

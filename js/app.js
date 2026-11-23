@@ -288,6 +288,7 @@
     if (shop.headline) $("#shop-headline").textContent = shop.headline;
     if (shop.headlineAccent != null) $("#shop-accent").textContent = shop.headlineAccent;
     $("#shop-intro").textContent = shop.intro || "";
+    $("#shop-intro").hidden = !shop.intro;
     const prices = packs.map((p) => Number(p.priceUsd)).filter((x) => Number.isFinite(x) && x > 0);
     $("#shop-stats").innerHTML = [
       [packs.length, packs.length === 1 ? "pack available" : "packs available"],

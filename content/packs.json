@@ -106,5 +106,22 @@
     ],
     "paypalUrl": "",
     "robuxUrl": ""
+  },
+  {
+    "id": "crocodile",
+    "title": "Stylized Crocodile",
+    "tagline": "A big stylized crocodile with sharp teeth, ready to drop into your game.",
+    "images": [
+      "media/packs/crocodile.webp"
+    ],
+    "featured": false,
+    "priceUsd": "30",
+    "priceRobux": "",
+    "includes": [
+      "Stylized crocodile model",
+      "Hand-painted stripes and spikes"
+    ],
+    "paypalUrl": "",
+    "robuxUrl": ""
   }
 ]
