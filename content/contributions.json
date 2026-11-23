@@ -3,7 +3,7 @@
     "game": "SuperBullet Studios",
     "studio": "",
     "role": "3D Artist",
-    "badge": "Currently working with",
+    "badge": "",
     "visits": "1B+",
     "ccu": "",
     "thumbnail": "media/games/superbullet-studios.webp",
@@ -56,13 +56,14 @@
     "game": "Ballstrike Eternal",
     "studio": "",
     "role": "3D Artist",
-    "badge": "Coming soon",
+    "badge": "Currently working with",
     "visits": "",
     "ccu": "",
     "thumbnail": "media/games/ballstrike-eternal.webp",
     "bg": "",
     "fit": "cover",
     "url": "",
-    "showInHero": true
+    "showInHero": false,
+    "badge2": "Coming soon"
   }
 ]

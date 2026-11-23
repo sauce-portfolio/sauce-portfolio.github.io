@@ -69,7 +69,7 @@
 
 
     // hero: "worked with" logos (released studios/games that have a logo) + 3D wall of creations
-    const trusted = games.filter((g) => g.thumbnail && g.showInHero !== false && !/soon|unreleased|upcoming/i.test(g.badge || ""));
+    const trusted = games.filter((g) => g.thumbnail && g.showInHero !== false && !/soon|unreleased|upcoming/i.test(`${g.badge || ""} ${g.badge2 || ""}`));
     $("#trusted-row").innerHTML = trusted.map((g) => {
       const okBg = /^#[0-9a-f]{3,8}$/i.test(String(g.bg || "").trim());
       const inner = `<span class="tl-logo${g.icon ? " icon" : ""}"${okBg ? ` style="background:${esc(g.bg.trim())}"` : ""}><img src="${esc(g.icon || g.thumbnail)}" alt=""></span><span>${esc(g.game)}</span>`;
@@ -102,11 +102,10 @@
       const art = g.thumbnail
         ? `${okBg || cover ? "" : `<img class="fit-bg" src="${esc(g.thumbnail)}" alt="" aria-hidden="true" loading="lazy">`}<img class="fit-img" src="${esc(g.thumbnail)}" alt="${esc(g.game)}" loading="lazy">`
         : `<span class="game-mono" aria-hidden="true">${esc(mono)}</span>`;
-      const soon = /soon|unreleased|upcoming|not released/i.test(g.badge || "");
       const cls = ["game", wide.has(i) ? "wide" : "", left % 3 === 1 && left < 4 && i === games.length - 1 ? "full" : ""].filter(Boolean).join(" ");
       return `<${tag} class="${cls}"${attrs}>
         <span class="game-img${cover ? " cover" : ""}${okBg ? " plate" : ""}"${okBg ? ` style="background:${esc(g.bg.trim())}"` : ""}>${art}
-          ${g.badge ? `<span class="game-badge${soon ? " soon" : ""}${/current/i.test(g.badge) ? " live" : ""}"><i></i>${esc(g.badge)}</span>` : ""}
+          ${[g.badge, g.badge2].some(Boolean) ? `<span class="game-badges">${[g.badge, g.badge2].filter(Boolean).map((t) => `<span class="game-badge${/soon|unreleased|upcoming/i.test(t) ? " soon" : ""}${/current/i.test(t) ? " live" : ""}"><i></i>${esc(t)}</span>`).join("")}</span>` : ""}
           ${g.url ? `<span class="game-play">${/roblox\.com\/games/.test(g.url) ? "Play" : "Visit"} ↗</span>` : ""}
         </span>
         <span class="game-info">

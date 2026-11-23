@@ -34,6 +34,7 @@ content:
       - { name: role, label: "Ce que tu as fait", type: string }
       - { name: visits, label: "Visites (ex. 250M+)", type: string }
       - { name: ccu, label: "Peak CCU (ex. 30K+)", type: string }
+      - { name: badge2, label: "Deuxième étiquette (optionnel)", type: string }
       - { name: thumbnail, label: "Logo ou miniature (vide = initiales)", type: image }
       - { name: icon, label: "Petite icône ronde pour « Worked with » (optionnel, sinon le logo)", type: image }
       - { name: bg, label: "Couleur de fond derrière le logo (ex. #ffffff, vide = flou)", type: string }
