@@ -79,9 +79,9 @@
     const wall = items.map((c, i) => ({ c, i })).filter(({ c }) => c.cover);
     const half = Math.ceil(wall.length / 2);
     const rowHtml = (list) => {
-      const one = list.map(({ c, i }) => `<button type="button" class="sc-card" data-i="${i}" aria-label="View image ${i + 1}"><img src="${esc(c.cover)}" alt="" loading="lazy"></button>`).join("");
+      const one = list.map(({ c, i }) => `<button type="button" class="sc-card" data-i="${i}" tabindex="-1" aria-hidden="true"><img src="${esc(c.cover)}" alt="" loading="lazy"></button>`).join("");
       // second copy makes the loop seamless; it is hidden from keyboard and screen readers
-      return one + `<span class="sc-copy" aria-hidden="true">${one.replace(/<button /g, '<button tabindex="-1" ')}</span>`;
+      return one + `<span class="sc-copy" aria-hidden="true">${one}</span>`;
     };
     $("#sc-1").innerHTML = rowHtml(wall.slice(0, half));
     $("#sc-2").innerHTML = rowHtml(wall.slice(half).reverse());
@@ -182,7 +182,11 @@
 
   /* ---------- viewer ---------- */
   let items = [], cur = 0, view = "render";
-  const visibleIdx = () => $$("#grid .tile:not(.is-hidden)").map((c) => +c.dataset.i);
+  const visibleIdx = () => {
+    const all = items.map((_, i) => i);
+    const list = all.filter((i) => workCat === "All" || items[i].category === workCat);
+    return list.includes(cur) ? list : all;
+  };
   function drawViewer() {
     const c = items[cur]; if (!c) return;
     $("#v-media").innerHTML = c.video
