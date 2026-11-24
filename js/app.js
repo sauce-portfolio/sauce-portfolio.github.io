@@ -119,27 +119,6 @@
     }).join("");
     $("#games").hidden = !games.length;
 
-    // about: discord-style profile card
-    if (p.banner) $("#dp-banner").style.backgroundImage = `url("${String(p.banner).replace(/"/g, "")}")`;
-    const open = !p.status || p.status.open;
-    $("#dp-dot").classList.toggle("closed", !open);
-    $("#dp-bubble").classList.toggle("closed", !open);
-    $("#dp-bubble span").textContent = open ? (p.status?.label || "Available") : (p.status?.closedLabel || "Not available");
-    $("#dp-socials").innerHTML = (p.socials || []).map((s) =>
-      `<a href="${esc(s.url)}" target="_blank" rel="noopener" aria-label="${esc(s.label)}">${icon(socialIcon(s))}</a>`).join("");
-    $("#dp-meta").innerHTML = [
-      ["Tools", (p.tools || []).join(", ")],
-      ["Experience", p.experience ? `${p.experience} years` : ""],
-      ["Contributed", p.visits ? `${p.visits} visits` : ""],
-      ["Games", games.length ? String(games.length) : ""],
-    ].filter(([, v]) => v).map(([k, v]) => `<div><dt>${k}</dt><dd>${esc(v)}</dd></div>`).join("");
-
-    $("#about-body").innerHTML = String(p.about || "").split(/\n\s*\n/).filter(Boolean).map((t) => `<p>${esc(t)}</p>`).join("");
-    $("#facts").innerHTML = (p.aboutCards || []).map((c) => {
-      const ic = ICONS.includes(c.icon) ? c.icon : "sparkle";
-      return `<li><span class="ico">${icon(ic)}</span><div><h3>${esc(c.title)}</h3><p>${esc(c.text)}</p></div></li>`;
-    }).join("");
-    $("#tags").innerHTML = (p.tags || p.tools || []).map((t) => `<li>${esc(t)}</li>`).join("");
 
     // filters + mosaic (images only)
     const cats = ["All", ...new Set(items.map((c) => c.category).filter(Boolean))];
@@ -374,7 +353,7 @@
 
   /* ---------- routing + dock ---------- */
   const DOCKS = {
-    portfolio: [["home", "Home"], ["work", "Work"], ["games", "Games"], ["about", "About"], ["contact", "Contact"]],
+    portfolio: [["home", "Home"], ["work", "Work"], ["games", "Games"], ["contact", "Contact"]],
     packs: [["shop-home", "Home"], ["featured", "Featured"], ["all-packs", "Packs"], ["buying", "Buying"]],
   };
   let io;
