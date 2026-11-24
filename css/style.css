@@ -371,6 +371,14 @@ a.tl:hover { transform: translateY(-2px); border-color: color-mix(in srgb, var(-
 .tile.pop { animation: pop .4s ease both; }
 @keyframes pop { from { opacity: .3; transform: translateY(8px); } to { opacity: 1; transform: none; } }
 .more { display: flex; justify-content: center; margin-top: 32px; }
+/* "See everything": the last preview row fades out under the button */
+.mosaic { position: relative; }
+.mosaic.clipped::after { content: ""; position: absolute; left: -2px; right: -2px; bottom: -2px; height: clamp(140px, 16vw, 230px); pointer-events: none; z-index: 1;
+  background: linear-gradient(to bottom, transparent, color-mix(in srgb, var(--ground) 82%, transparent) 60%, var(--ground)); }
+.see-all { position: relative; z-index: 2; display: flex; justify-content: center; margin-top: clamp(-84px, -7vw, -56px); }
+.see-all-btn { min-height: 58px; padding: 0 30px; font-size: 17px; gap: 12px; }
+.see-all-n { font: 500 13px/1 var(--f-mono); padding: 6px 9px; border-radius: 999px; background: rgba(255, 255, 255, .2); }
+.see-all-btn svg { transform: rotate(90deg); }
 
 /* contact panel */
 .end {

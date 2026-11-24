@@ -132,11 +132,11 @@
     };
     $("#grid").innerHTML = items.map((c, i) => `
       <button type="button" class="tile" data-i="${i}" data-cat="${esc(c.category)}" aria-label="View image ${i + 1}">${swap(c)}</button>`).join("");
+    workPreview = Number(p.workPreview) > 0 ? Number(p.workPreview) : 16;
+    filter("All", true);
+    $("#see-all-btn").onclick = () => { workOpen = true; filter(workCat, true); };
     $("#grid").onclick = (e) => { const t = e.target.closest(".tile"); if (t) openViewer(+t.dataset.i); };
-    layoutMosaic();
 
-    const art = (p.socials || []).find((s) => socialIcon(s) === "artstation");
-    $("#more").innerHTML = art ? `<a class="btn btn-white" href="${esc(art.url)}" target="_blank" rel="noopener">${icon("artstation")}See more on ArtStation</a>` : "";
 
     // contact pills
     const rows = [];
@@ -157,12 +157,24 @@
       t.classList.add(k === vis.length - 1 && k % 2 === 0 ? "full" : "s3");
     });
   }
-  function filter(cat) {
-    $$("#grid .tile").forEach((t) => {
-      const show = cat === "All" || t.dataset.cat === cat;
+  // "All" shows the first workPreview creations until "See everything" is clicked; a category shows all of its own
+  let workPreview = 16, workOpen = false, workCat = "All";
+  function filter(cat, onlyNew) {
+    workCat = cat;
+    const limited = !workOpen && cat === "All";
+    const tiles = $$("#grid .tile");
+    tiles.forEach((t, i) => {
+      const was = !t.classList.contains("is-hidden");
+      const show = (cat === "All" || t.dataset.cat === cat) && !(limited && i >= workPreview);
+      t.classList.toggle("is-hidden", !show);
+      if (onlyNew && was) return;
       t.classList.toggle("is-hidden", !show);
       if (show) { t.classList.remove("pop"); void t.offsetWidth; t.classList.add("pop"); }
     });
+    const hiddenCount = limited ? Math.max(0, tiles.length - workPreview) : 0;
+    $("#see-all").hidden = !hiddenCount;
+    $("#grid").classList.toggle("clipped", !!hiddenCount);
+    $("#see-all-n").textContent = hiddenCount ? `+${hiddenCount}` : "";
     layoutMosaic();
   }
 
@@ -426,7 +438,7 @@
     rio = new IntersectionObserver((entries) => entries.forEach((en) => { if (en.isIntersecting) { en.target.classList.add("in"); rio.unobserve(en.target); } }), { rootMargin: "0px 0px -8% 0px" });
     const page = document.querySelector(".page:not([hidden])");
     if (!page) return;
-    $$(".sec-head, .tile, .game, .dp, .about-main, .end, .pack, .how-col, .faq details, .more, .filters, .fx, .shop-end", page).forEach((el, i) => {
+    $$(".sec-head, .tile, .game, .dp, .about-main, .end, .pack, .how-col, .faq details, .filters, .fx, .shop-end", page).forEach((el, i) => {
       if (el.classList.contains("in")) return;
       el.classList.add("rv");
       const sib = el.parentElement ? Array.prototype.indexOf.call(el.parentElement.children, el) : 0;
