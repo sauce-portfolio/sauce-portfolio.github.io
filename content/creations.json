@@ -84,6 +84,36 @@
     "video": ""
   },
   {
+    "id": "christmas-axe",
+    "category": "Weapons",
+    "cover": "media/creations/christmas-axe.webp",
+    "video": ""
+  },
+  {
+    "id": "christmas-scythe",
+    "category": "Weapons",
+    "cover": "media/creations/christmas-scythe.webp",
+    "video": ""
+  },
+  {
+    "id": "christmas-karambits",
+    "category": "Weapons",
+    "cover": "media/creations/christmas-karambits.webp",
+    "video": ""
+  },
+  {
+    "id": "christmas-ice-sword",
+    "category": "Weapons",
+    "cover": "media/creations/christmas-ice-sword.webp",
+    "video": ""
+  },
+  {
+    "id": "christmas-katana",
+    "category": "Weapons",
+    "cover": "media/creations/christmas-katana.webp",
+    "video": ""
+  },
+  {
     "id": "treasure-chests",
     "category": "Props",
     "cover": "media/creations/treasure-chests.webp",

@@ -132,7 +132,9 @@
     };
     $("#grid").innerHTML = items.map((c, i) => `
       <button type="button" class="tile" data-i="${i}" data-cat="${esc(c.category)}" aria-label="View image ${i + 1}">${swap(c)}</button>`).join("");
-    workPreview = Number(p.workPreview) > 0 ? Number(p.workPreview) : 16;
+    // preview ends on the creation named by workPreviewUntil (rounded up to a full row), or after workPreview items
+    const until = items.findIndex((c) => c.id === p.workPreviewUntil);
+    workPreview = until >= 0 ? until + 1 + ((until + 1) % 2) : (Number(p.workPreview) > 0 ? Number(p.workPreview) : 16);
     filter("All", true);
     $("#see-all-btn").onclick = () => { workOpen = true; filter(workCat, true); };
     $("#grid").onclick = (e) => { const t = e.target.closest(".tile"); if (t) openViewer(+t.dataset.i); };
