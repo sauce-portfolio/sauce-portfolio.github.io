@@ -106,7 +106,7 @@
       return `<${tag} class="${cls}"${attrs}>
         <span class="game-img${cover ? " cover" : ""}${okBg ? " plate" : ""}"${okBg ? ` style="background:${esc(g.bg.trim())}"` : ""}>${art}
           ${[g.badge, g.badge2].some(Boolean) ? `<span class="game-badges">${[g.badge, g.badge2].filter(Boolean).map((t) => `<span class="game-badge${/soon|unreleased|upcoming/i.test(t) ? " soon" : ""}${/current/i.test(t) ? " live" : ""}"><i></i>${esc(t)}</span>`).join("")}</span>` : ""}
-          ${g.url ? `<span class="game-play">${/roblox\.com\/games/.test(g.url) ? "Play" : "Visit"} ↗</span>` : ""}
+          ${g.url ? `<span class="game-play">${/roblox\.com\/games/.test(g.url) ? "Play" : /discord\.(gg|com)/.test(g.url) ? "Discord" : "Visit"} ↗</span>` : ""}
         </span>
         <span class="game-info">
           <span class="game-text">
